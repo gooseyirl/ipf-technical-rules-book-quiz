@@ -4,7 +4,9 @@
       "WebFetch(domain:www.powerlifting.sport)",
       "Bash(gradlew.bat assembleDebug:*)",
       "Bash(adb logcat:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\n[Init] Initial IPF Technical Rules Quiz Android app\n\n- Complete Android app structure with API 35 target\n- MVVM architecture with ViewBinding and Navigation Component\n- Material Design 3 UI with IPF-themed colors\n- Quiz functionality with 15 sample questions\n- Results screen with pass/fail indication (70% threshold)\n- Answer review with detailed rulebook references\n- Custom powerlifting-themed app icon\n- Complete documentation (README, PRIVACY_POLICY, PLAY_STORE)\n- Screenshot automation scripts\n- AGP 8.13.0 and Gradle 8.13 (latest stable versions)\n\nFeatures:\n- 10-question randomized quiz per session\n- Multiple choice interface with progress tracking\n- Comprehensive results with correct/incorrect breakdown\n- Answer review showing user answers vs correct answers\n- Rule references (section, subsection, rule number, page)\n- Explanations for each question\n- Fully offline, no data collection\n- Privacy-first design\n\nTechnical Stack:\n- Target SDK: API 35 (Android 15)\n- Min SDK: API 24 (Android 7.0)\n- Kotlin 2.1.0\n- AndroidX libraries\n- Navigation Component 2.8.5\n- Lifecycle ViewModel 2.8.7\n- Coroutines 1.10.1\n- Material Design 3\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(where:*)"
     ],
     "deny": [],
     "ask": []

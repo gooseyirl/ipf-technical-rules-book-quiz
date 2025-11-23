@@ -196,8 +196,11 @@ Root directory:
 **Key Dependencies:**
 - AndroidX Core KTX 1.15.0
 - AppCompat 1.7.0
+- Activity KTX 1.9.3
+- Fragment KTX 1.8.5
 - Material Design 1.12.0
 - ConstraintLayout 2.2.0
+- RecyclerView 1.3.2
 - Navigation 2.8.5
 - Lifecycle 2.8.7
 - Coroutines 1.10.1

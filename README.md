@@ -187,7 +187,9 @@ When contributing:
 - 15 sample questions covering key IPF technical rules
 - Quiz functionality with results and review
 - Material Design 3 UI
+- Custom powerlifting-themed app icon
 - Based on March 2025 IPF Technical Rules
+- Bug fix: Added missing Fragment, RecyclerView, and Activity dependencies
 
 ## License
 
