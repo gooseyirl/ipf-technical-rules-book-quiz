@@ -355,6 +355,7 @@ dependencies {
     // AndroidX Core
     implementation 'androidx.core:core-ktx:1.15.0'
     implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.activity:activity-ktx:1.9.3'
 
     // Material Design
     implementation 'com.google.android.material:material:1.12.0'
@@ -367,6 +368,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.2.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 }
+```
+
+**IMPORTANT:** If your app uses any of these features, add the corresponding dependencies:
+
+```gradle
+// If using Fragments (required for Navigation Component)
+implementation 'androidx.fragment:fragment-ktx:1.8.5'
+
+// If using RecyclerView for lists
+implementation 'androidx.recyclerview:recyclerview:1.3.2'
 ```
 
 ### Optional but Recommended
@@ -441,6 +452,76 @@ android:supportsRtl="true"
 - Support TalkBack screen reader
 - Make touch targets at least 48dp
 - Support text scaling
+
+## App Icon Setup
+
+### Icon Directory Structure
+
+App icons must be placed in multiple mipmap directories for different screen densities:
+
+```
+app/src/main/res/
+├── mipmap-mdpi/
+│   ├── ic_launcher.png (48x48dp)
+│   └── ic_launcher_round.png
+├── mipmap-hdpi/
+│   ├── ic_launcher.png (72x72dp)
+│   └── ic_launcher_round.png
+├── mipmap-xhdpi/
+│   ├── ic_launcher.png (96x96dp)
+│   └── ic_launcher_round.png
+├── mipmap-xxhdpi/
+│   ├── ic_launcher.png (144x144dp)
+│   └── ic_launcher_round.png
+├── mipmap-xxxhdpi/
+│   ├── ic_launcher.png (192x192dp)
+│   └── ic_launcher_round.png
+└── mipmap-anydpi-v26/
+    ├── ic_launcher.xml
+    └── ic_launcher_round.xml
+```
+
+### Adaptive Icon Configuration (Android 8.0+)
+
+Create `mipmap-anydpi-v26/ic_launcher.xml`:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@color/ic_launcher_background"/>
+    <foreground android:drawable="@mipmap/ic_launcher"/>
+</adaptive-icon>
+```
+
+Add icon background color to `values/colors.xml`:
+
+```xml
+<color name="ic_launcher_background">#FFFFFF</color>
+```
+
+### AndroidManifest Configuration
+
+```xml
+<application
+    android:icon="@mipmap/ic_launcher"
+    android:roundIcon="@mipmap/ic_launcher_round"
+    ...>
+```
+
+### Icon Best Practices
+
+1. **Use PNG format** with transparency for foreground
+2. **Design for adaptive icons** - keep important elements in safe zone (center 66%)
+3. **Test on different launchers** - various Android devices use different shapes
+4. **Provide all densities** - ideally create specific sizes for each density, not just copy the same file
+5. **Use simple, recognizable design** - icons are displayed at small sizes
+
+### Play Store Icon Requirements
+
+For Google Play Store submission, you'll also need:
+
+- **App Icon**: 512x512 PNG with transparency (32-bit)
+- **Feature Graphic**: 1024x500 JPEG or PNG (no transparency)
 
 ## Creating a New App from This Template
 
@@ -545,5 +626,24 @@ When creating a new Android app using this template:
 5. Use the exact project structure outlined above
 6. Follow the security guidelines strictly
 7. Commit with descriptive messages and Co-Authored-By attribution
+
+### Common Pitfalls to Avoid
+
+**Missing Dependencies:**
+- Always include `androidx.activity:activity-ktx` in essential dependencies
+- If using Navigation Component, you MUST include `androidx.fragment:fragment-ktx`
+- If using RecyclerView anywhere in the app, you MUST include `androidx.recyclerview:recyclerview`
+- These dependencies are not automatically included and will cause crashes if missing
+
+**App Icon Setup:**
+- Always set up icons in all mipmap densities (mdpi, hdpi, xhdpi, xxhdpi, xxxhdpi)
+- Always create adaptive icon XML for Android 8.0+ support
+- Always add `ic_launcher_background` color to colors.xml
+- Test icons on actual devices or emulators to verify they display correctly
+
+**Build Configuration:**
+- Always use exact version numbers (e.g., '8.13.0'), never dynamic versions (e.g., '8.13.+')
+- AGP version must match the minimum required Gradle version
+- JDK 17 is required for AGP 8.13+
 
 This template ensures consistency across all Android projects and adherence to Google Play requirements.
