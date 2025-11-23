@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.powerlifting.sport)",
+      "Bash(gradlew.bat assembleDebug:*)",
+      "Bash(adb logcat:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
