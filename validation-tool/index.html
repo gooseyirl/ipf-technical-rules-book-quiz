@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPF Quiz Question Validator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Drop zone styles */
+        .drop-zone {
+            border: 3px dashed #3498db;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: #2980b9;
+            background: #ebf5fb;
+        }
+
+        .drop-zone input {
+            display: none;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            justify-content: space-around;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .stat.pending .stat-value { color: #f39c12; }
+        .stat.validated .stat-value { color: #27ae60; }
+        .stat.review .stat-value { color: #3498db; }
+        .stat.rejected .stat-value { color: #e74c3c; }
+
+        /* Filter tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            border: none;
+            background: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
+
+        .filter-tab:hover {
+            background: #ecf0f1;
+        }
+
+        .filter-tab.active {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .filter-tab.active.pending { background: #f39c12; }
+        .filter-tab.active.validated { background: #27ae60; }
+        .filter-tab.active.review { background: #3498db; }
+        .filter-tab.active.rejected { background: #e74c3c; }
+
+        /* Jump to ID */
+        .jump-to {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .jump-to input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 100px;
+        }
+
+        .jump-to button {
+            padding: 8px 16px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Progress */
+        .progress-bar {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .progress-track {
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #27ae60;
+            transition: width 0.3s;
+        }
+
+        /* Question card */
+        .question-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .question-id {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .question-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .question-status.pending { background: #fef3cd; color: #856404; }
+        .question-status.validated { background: #d4edda; color: #155724; }
+        .question-status.review_later { background: #cce5ff; color: #004085; }
+        .question-status.rejected { background: #f8d7da; color: #721c24; }
+
+        .question-text {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Options */
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .option:hover:not(.disabled) {
+            border-color: #3498db;
+            background: #ebf5fb;
+        }
+
+        .option.selected {
+            border-color: #3498db;
+            background: #ebf5fb;
+        }
+
+        .option.correct {
+            border-color: #27ae60;
+            background: #d4edda;
+        }
+
+        .option.incorrect {
+            border-color: #e74c3c;
+            background: #f8d7da;
+        }
+
+        .option.disabled {
+            cursor: default;
+        }
+
+        .option-key {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #ecf0f1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .option.selected .option-key {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .option.correct .option-key {
+            background: #27ae60;
+            color: #fff;
+        }
+
+        .option.incorrect .option-key {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        /* Submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+
+        .submit-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        /* Result section */
+        .result-section {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .result-section.correct {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+
+        .result-section.incorrect {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .result-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .result-section.correct .result-title { color: #155724; }
+        .result-section.incorrect .result-title { color: #721c24; }
+
+        .explanation {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 5px;
+        }
+
+        .rule-reference {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .rule-reference a {
+            color: #3498db;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .rule-reference a:hover {
+            text-decoration: underline;
+        }
+
+        /* Rule quote section */
+        .rule-quote-section {
+            margin-top: 15px;
+            padding: 15px;
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 5px;
+        }
+
+        .rule-quote-section label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #856404;
+        }
+
+        .rule-quote-section textarea {
+            width: 100%;
+            min-height: 80px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+        }
+
+        .rule-quote-section .save-hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* PDF settings */
+        .pdf-settings {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .pdf-settings label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .pdf-settings input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .pdf-settings .input-row {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .pdf-settings .hint {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .action-btn .shortcut {
+            opacity: 0.7;
+            font-size: 12px;
+            font-weight: normal;
+        }
+
+        .action-btn.validate {
+            background: #27ae60;
+            color: #fff;
+        }
+
+        .action-btn.validate:hover {
+            background: #229954;
+        }
+
+        .action-btn.review {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .action-btn.review:hover {
+            background: #2980b9;
+        }
+
+        .action-btn.reject {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        .action-btn.reject:hover {
+            background: #c0392b;
+        }
+
+        .action-btn.skip {
+            background: #95a5a6;
+            color: #fff;
+        }
+
+        .action-btn.skip:hover {
+            background: #7f8c8d;
+        }
+
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            background: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .nav-btn:hover {
+            background: #ecf0f1;
+        }
+
+        .nav-btn:disabled {
+            background: #f5f5f5;
+            color: #bbb;
+            cursor: not-allowed;
+        }
+
+        /* Export section */
+        .export-section {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .export-btn {
+            padding: 15px 40px;
+            background: #9b59b6;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .export-btn:hover {
+            background: #8e44ad;
+        }
+
+        /* Keyboard shortcuts help */
+        .shortcuts-help {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .shortcuts-help h3 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .shortcuts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 5px;
+        }
+
+        .shortcut-item {
+            display: flex;
+            gap: 8px;
+        }
+
+        .shortcut-item kbd {
+            background: #ecf0f1;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+
+        /* Hidden */
+        .hidden {
+            display: none !important;
+        }
+
+        /* No questions message */
+        .no-questions {
+            text-align: center;
+            padding: 40px;
+            background: #fff;
+            border-radius: 8px;
+            color: #666;
+        }
+
+        /* Restore prompt */
+        .restore-prompt {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .restore-prompt button {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .restore-prompt button:first-of-type {
+            background: #27ae60;
+            color: #fff;
+        }
+
+        .restore-prompt button:last-of-type {
+            background: #95a5a6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>IPF Quiz Question Validator</h1>
+    <p class="subtitle">Load questions.json to begin validating questions</p>
+
+    <!-- File drop zone -->
+    <div id="dropZone" class="drop-zone">
+        <p>Drag & drop questions.json here<br>or click to select file</p>
+        <input type="file" id="fileInput" accept=".json">
+    </div>
+
+    <!-- Restore autosave prompt (hidden by default) -->
+    <div id="restorePrompt" class="restore-prompt hidden">
+        <p><strong>Autosave found!</strong> Last saved: <span id="autosaveTime"></span></p>
+        <button onclick="restoreAutosave()">Restore Progress</button>
+        <button onclick="dismissAutosave()">Start Fresh</button>
+    </div>
+
+    <!-- Main content (hidden until file loaded) -->
+    <div id="mainContent" class="hidden">
+        <!-- PDF settings -->
+        <div class="pdf-settings">
+            <div class="input-row">
+                <label>PDF Path:</label>
+                <input type="text" id="pdfPath" placeholder="path/to/rulebook.pdf or URL">
+            </div>
+            <div class="hint">Enter local file path or URL. For local files, the PDF viewer must support #page=N fragment.</div>
+        </div>
+
+        <!-- Stats bar -->
+        <div class="stats-bar">
+            <div class="stat pending">
+                <div class="stat-value" id="statPending">0</div>
+                <div class="stat-label">Pending</div>
+            </div>
+            <div class="stat review">
+                <div class="stat-value" id="statReview">0</div>
+                <div class="stat-label">Review Later</div>
+            </div>
+            <div class="stat validated">
+                <div class="stat-value" id="statValidated">0</div>
+                <div class="stat-label">Validated</div>
+            </div>
+            <div class="stat rejected">
+                <div class="stat-value" id="statRejected">0</div>
+                <div class="stat-label">Rejected</div>
+            </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+            <button class="filter-tab pending active" data-filter="pending">Pending</button>
+            <button class="filter-tab review" data-filter="review_later">Review Later</button>
+            <button class="filter-tab validated" data-filter="validated">Validated</button>
+            <button class="filter-tab rejected" data-filter="rejected">Rejected</button>
+            <button class="filter-tab" data-filter="all">All</button>
+        </div>
+
+        <!-- Jump to ID -->
+        <div class="jump-to">
+            <label>Jump to ID:</label>
+            <input type="number" id="jumpToId" min="1">
+            <button onclick="jumpToQuestion()">Go</button>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-bar">
+            <div class="progress-text">
+                <span id="progressText">Question 1 of 100 (ID: 1)</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- Question card -->
+        <div id="questionCard" class="question-card">
+            <div class="question-header">
+                <span class="question-id" id="questionId">ID: 1</span>
+                <span class="question-status" id="questionStatus">pending</span>
+            </div>
+            <div class="question-text" id="questionText">
+                Loading question...
+            </div>
+            <div class="options-list" id="optionsList">
+                <!-- Options will be inserted here -->
+            </div>
+            <button class="submit-btn" id="submitBtn" onclick="submitAnswer()" disabled>
+                Submit Answer (Enter)
+            </button>
+
+            <!-- Result section (hidden until submitted) -->
+            <div id="resultSection" class="result-section hidden">
+                <div class="result-title" id="resultTitle">Correct!</div>
+                <div class="explanation" id="explanationText"></div>
+                <div class="rule-reference" id="ruleReference"></div>
+
+                <!-- Rule quote section -->
+                <div class="rule-quote-section">
+                    <label>Exact Quote from Rulebook:</label>
+                    <textarea id="ruleQuoteInput" placeholder="Paste the exact text from the rulebook here..."></textarea>
+                    <div class="save-hint">Quote is auto-saved when you change status or navigate away</div>
+                </div>
+            </div>
+
+            <!-- Action buttons (hidden until submitted) -->
+            <div id="actionButtons" class="action-buttons hidden">
+                <button class="action-btn validate" onclick="setStatus('validated')">
+                    Validate <span class="shortcut">(V)</span>
+                </button>
+                <button class="action-btn review" onclick="setStatus('review_later')">
+                    Review Later <span class="shortcut">(L)</span>
+                </button>
+                <button class="action-btn reject" onclick="setStatus('rejected')">
+                    Reject <span class="shortcut">(R)</span>
+                </button>
+                <button class="action-btn skip" onclick="nextQuestion()">
+                    Skip <span class="shortcut">(N)</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- No questions message -->
+        <div id="noQuestions" class="no-questions hidden">
+            <p>No questions match the current filter.</p>
+            <p>Try selecting a different filter or load more questions.</p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn" onclick="prevQuestion()">Previous</button>
+            <button class="nav-btn" id="nextBtn" onclick="nextQuestion()">Next</button>
+        </div>
+
+        <!-- Export section -->
+        <div class="export-section">
+            <button class="export-btn" onclick="exportJson()">Export Updated JSON</button>
+        </div>
+
+        <!-- Keyboard shortcuts -->
+        <div class="shortcuts-help">
+            <h3>Keyboard Shortcuts</h3>
+            <div class="shortcuts-grid">
+                <div class="shortcut-item"><kbd>1-4</kbd> Select answer</div>
+                <div class="shortcut-item"><kbd>Enter</kbd> Submit answer</div>
+                <div class="shortcut-item"><kbd>V</kbd> Validate</div>
+                <div class="shortcut-item"><kbd>L</kbd> Review Later</div>
+                <div class="shortcut-item"><kbd>R</kbd> Reject</div>
+                <div class="shortcut-item"><kbd>N</kbd> Next question</div>
+                <div class="shortcut-item"><kbd>P</kbd> Previous question</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let questionData = null;
+        let filteredQuestions = [];
+        let currentIndex = 0;
+        let selectedOption = null;
+        let hasSubmitted = false;
+        let currentFilter = 'pending';
+
+        // DOM elements
+        const dropZone = document.getElementById('dropZone');
+        const fileInput = document.getElementById('fileInput');
+        const mainContent = document.getElementById('mainContent');
+
+        // Check for autosave on load
+        function checkAutosave() {
+            const saved = localStorage.getItem('ipf_quiz_autosave');
+            const savedTime = localStorage.getItem('ipf_quiz_autosave_time');
+            if (saved && savedTime) {
+                document.getElementById('autosaveTime').textContent = savedTime;
+                document.getElementById('restorePrompt').classList.remove('hidden');
+            }
+        }
+
+        function restoreAutosave() {
+            const saved = localStorage.getItem('ipf_quiz_autosave');
+            if (saved) {
+                questionData = JSON.parse(saved);
+                questionData.questions.sort((a, b) => a.id - b.id);
+                document.getElementById('restorePrompt').classList.add('hidden');
+                initializeUI();
+            }
+        }
+
+        function dismissAutosave() {
+            document.getElementById('restorePrompt').classList.add('hidden');
+        }
+
+        checkAutosave();
+
+        // File handling
+        dropZone.addEventListener('click', () => fileInput.click());
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            const file = e.dataTransfer.files[0];
+            if (file) loadFile(file);
+        });
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) loadFile(file);
+        });
+
+        function loadFile(file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    questionData = JSON.parse(e.target.result);
+                    if (!questionData.questions || !Array.isArray(questionData.questions)) {
+                        throw new Error('Invalid JSON structure');
+                    }
+                    // Sort questions by ID
+                    questionData.questions.sort((a, b) => a.id - b.id);
+                    initializeUI();
+                } catch (err) {
+                    alert('Error loading file: ' + err.message);
+                }
+            };
+            reader.readAsText(file);
+        }
+
+        function initializeUI() {
+            dropZone.classList.add('hidden');
+            mainContent.classList.remove('hidden');
+            updateStats();
+            applyFilter('pending');
+
+            // Set up filter tabs
+            document.querySelectorAll('.filter-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    applyFilter(tab.dataset.filter);
+                });
+            });
+        }
+
+        function updateStats() {
+            const counts = { pending: 0, validated: 0, review_later: 0, rejected: 0 };
+            questionData.questions.forEach(q => {
+                const status = q.status || 'pending';
+                if (counts.hasOwnProperty(status)) counts[status]++;
+            });
+
+            document.getElementById('statPending').textContent = counts.pending;
+            document.getElementById('statValidated').textContent = counts.validated;
+            document.getElementById('statReview').textContent = counts.review_later;
+            document.getElementById('statRejected').textContent = counts.rejected;
+        }
+
+        function applyFilter(filter) {
+            saveRuleQuote();
+            currentFilter = filter;
+            if (filter === 'all') {
+                filteredQuestions = [...questionData.questions];
+            } else {
+                filteredQuestions = questionData.questions.filter(q =>
+                    (q.status || 'pending') === filter
+                );
+            }
+            currentIndex = 0;
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const questionCard = document.getElementById('questionCard');
+            const noQuestions = document.getElementById('noQuestions');
+
+            if (filteredQuestions.length === 0) {
+                questionCard.classList.add('hidden');
+                noQuestions.classList.remove('hidden');
+                return;
+            }
+
+            questionCard.classList.remove('hidden');
+            noQuestions.classList.add('hidden');
+
+            const question = filteredQuestions[currentIndex];
+            selectedOption = null;
+            hasSubmitted = false;
+
+            // Update header
+            document.getElementById('questionId').textContent = `ID: ${question.id}`;
+            const statusEl = document.getElementById('questionStatus');
+            statusEl.textContent = question.status || 'pending';
+            statusEl.className = 'question-status ' + (question.status || 'pending');
+
+            // Update question text
+            document.getElementById('questionText').textContent = question.question;
+
+            // Update options
+            const optionsList = document.getElementById('optionsList');
+            optionsList.innerHTML = '';
+            question.options.forEach((opt, idx) => {
+                const div = document.createElement('div');
+                div.className = 'option';
+                div.innerHTML = `<span class="option-key">${idx + 1}</span><span>${opt}</span>`;
+                div.addEventListener('click', () => selectOption(idx));
+                optionsList.appendChild(div);
+            });
+
+            // Update progress
+            updateProgress();
+
+            // Reset UI state
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('resultSection').classList.add('hidden');
+            document.getElementById('actionButtons').classList.add('hidden');
+
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentIndex === 0;
+            document.getElementById('nextBtn').disabled = currentIndex >= filteredQuestions.length - 1;
+        }
+
+        function updateProgress() {
+            const total = filteredQuestions.length;
+            const current = currentIndex + 1;
+            const question = filteredQuestions[currentIndex];
+            const percent = total > 0 ? Math.round((current / total) * 100) : 0;
+
+            document.getElementById('progressText').textContent =
+                `Question ${current} of ${total} (ID: ${question?.id || '-'})`;
+            document.getElementById('progressPercent').textContent = `${percent}%`;
+            document.getElementById('progressFill').style.width = `${percent}%`;
+        }
+
+        function selectOption(index) {
+            if (hasSubmitted) return;
+
+            selectedOption = index;
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt, idx) => {
+                opt.classList.remove('selected');
+                if (idx === index) opt.classList.add('selected');
+            });
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        function submitAnswer() {
+            if (selectedOption === null || hasSubmitted) return;
+
+            hasSubmitted = true;
+            const question = filteredQuestions[currentIndex];
+            const isCorrect = selectedOption === question.correctAnswerIndex;
+
+            // Show result on options
+            const options = document.querySelectorAll('.option');
+            options.forEach((opt, idx) => {
+                opt.classList.add('disabled');
+                if (idx === question.correctAnswerIndex) {
+                    opt.classList.add('correct');
+                } else if (idx === selectedOption && !isCorrect) {
+                    opt.classList.add('incorrect');
+                }
+            });
+
+            // Show result section
+            const resultSection = document.getElementById('resultSection');
+            resultSection.classList.remove('hidden', 'correct', 'incorrect');
+            resultSection.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+            document.getElementById('resultTitle').textContent =
+                isCorrect ? 'Correct!' : 'Incorrect';
+
+            // Show explanation
+            const explanationText = document.getElementById('explanationText');
+            if (question.explanation) {
+                explanationText.textContent = question.explanation;
+                explanationText.classList.remove('hidden');
+            } else {
+                explanationText.classList.add('hidden');
+            }
+
+            // Show rule reference with PDF link
+            const ruleRef = document.getElementById('ruleReference');
+            if (question.ruleReference) {
+                const ref = question.ruleReference;
+                let refText = `Section ${ref.section}`;
+                if (ref.subsection) refText += ` - ${ref.subsection}`;
+                refText += ` - Rule ${ref.ruleNumber}`;
+                if (ref.pageNumber) refText += ` (Page ${ref.pageNumber})`;
+
+                // Create PDF link if page number exists
+                let pdfLink = '';
+                if (ref.pageNumber) {
+                    const pdfPath = document.getElementById('pdfPath').value;
+                    if (pdfPath) {
+                        pdfLink = `<a href="${pdfPath}#page=${ref.pageNumber}" target="_blank">Open PDF</a>`;
+                    }
+                }
+                ruleRef.innerHTML = refText + pdfLink;
+                ruleRef.classList.remove('hidden');
+            } else {
+                ruleRef.classList.add('hidden');
+            }
+
+            // Load existing rule quote
+            const ruleQuoteInput = document.getElementById('ruleQuoteInput');
+            ruleQuoteInput.value = question.ruleQuote || '';
+
+            // Show action buttons
+            document.getElementById('actionButtons').classList.remove('hidden');
+            document.getElementById('submitBtn').disabled = true;
+        }
+
+        function saveRuleQuote() {
+            if (!hasSubmitted || filteredQuestions.length === 0) return;
+            const question = filteredQuestions[currentIndex];
+            const mainQuestion = questionData.questions.find(q => q.id === question.id);
+            if (mainQuestion) {
+                const quoteValue = document.getElementById('ruleQuoteInput').value.trim();
+                mainQuestion.ruleQuote = quoteValue || null;
+            }
+        }
+
+        function autoSave() {
+            // Auto-save to localStorage to prevent losing progress
+            questionData.lastUpdated = new Date().toISOString().split('T')[0];
+            localStorage.setItem('ipf_quiz_autosave', JSON.stringify(questionData));
+            localStorage.setItem('ipf_quiz_autosave_time', new Date().toLocaleString());
+        }
+
+        function setStatus(status) {
+            saveRuleQuote();
+            const question = filteredQuestions[currentIndex];
+            // Find in main data and update
+            const mainQuestion = questionData.questions.find(q => q.id === question.id);
+            if (mainQuestion) {
+                mainQuestion.status = status;
+            }
+
+            updateStats();
+            autoSave();  // Auto-save on every status change
+
+            // Move to next or re-filter
+            if (currentFilter !== 'all' && status !== currentFilter) {
+                // Question no longer matches filter, need to re-filter
+                filteredQuestions = questionData.questions.filter(q =>
+                    (q.status || 'pending') === currentFilter
+                );
+                if (currentIndex >= filteredQuestions.length) {
+                    currentIndex = Math.max(0, filteredQuestions.length - 1);
+                }
+            } else {
+                // Move to next question
+                if (currentIndex < filteredQuestions.length - 1) {
+                    currentIndex++;
+                }
+            }
+
+            showQuestion();
+        }
+
+        function nextQuestion() {
+            saveRuleQuote();
+            if (currentIndex < filteredQuestions.length - 1) {
+                currentIndex++;
+                showQuestion();
+            }
+        }
+
+        function prevQuestion() {
+            saveRuleQuote();
+            if (currentIndex > 0) {
+                currentIndex--;
+                showQuestion();
+            }
+        }
+
+        function jumpToQuestion() {
+            saveRuleQuote();
+            const id = parseInt(document.getElementById('jumpToId').value);
+            if (isNaN(id)) return;
+
+            // First apply 'all' filter to find the question
+            const allQuestions = questionData.questions;
+            const idx = allQuestions.findIndex(q => q.id === id);
+
+            if (idx === -1) {
+                alert(`Question with ID ${id} not found`);
+                return;
+            }
+
+            // Switch to 'all' filter and go to that question
+            document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+            document.querySelector('.filter-tab[data-filter="all"]').classList.add('active');
+            currentFilter = 'all';
+            filteredQuestions = [...allQuestions];
+            currentIndex = idx;
+            showQuestion();
+        }
+
+        function exportJson() {
+            saveRuleQuote();
+            // Update lastUpdated
+            questionData.lastUpdated = new Date().toISOString().split('T')[0];
+
+            const jsonStr = JSON.stringify(questionData, null, 2);
+            const blob = new Blob([jsonStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'questions.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Don't handle if typing in input or textarea
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+            const key = e.key.toLowerCase();
+
+            // Number keys 1-4 for selecting answers
+            if (['1', '2', '3', '4'].includes(key) && !hasSubmitted) {
+                const idx = parseInt(key) - 1;
+                const question = filteredQuestions[currentIndex];
+                if (question && idx < question.options.length) {
+                    selectOption(idx);
+                }
+                return;
+            }
+
+            switch (key) {
+                case 'enter':
+                    if (!hasSubmitted && selectedOption !== null) {
+                        submitAnswer();
+                    }
+                    break;
+                case 'v':
+                    if (hasSubmitted) setStatus('validated');
+                    break;
+                case 'l':
+                    if (hasSubmitted) setStatus('review_later');
+                    break;
+                case 'r':
+                    if (hasSubmitted) setStatus('rejected');
+                    break;
+                case 'n':
+                    nextQuestion();
+                    break;
+                case 'p':
+                    prevQuestion();
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>

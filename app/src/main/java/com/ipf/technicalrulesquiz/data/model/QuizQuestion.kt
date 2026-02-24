@@ -19,7 +19,13 @@ data class QuizQuestion(
     val ruleReference: RuleReference,
 
     @SerializedName("explanation")
-    val explanation: String? = null
+    val explanation: String? = null,
+
+    @SerializedName("ruleQuote")
+    val ruleQuote: String? = null,
+
+    @SerializedName("status")
+    val status: String = "pending"  // "pending", "validated", "review_later", "rejected"
 )
 
 data class RuleReference(
