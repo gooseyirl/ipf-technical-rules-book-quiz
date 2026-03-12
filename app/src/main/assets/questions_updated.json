@@ -16,7 +16,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "a.3",
-        "pageNumber": 8
+        "pageNumber": 7
       },
       "explanation": "The diameter of the bar must not exceed 29mm or be less than 28mm.",
       "status": "validated",
@@ -36,7 +36,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "a.4",
-        "pageNumber": 8
+        "pageNumber": 7
       },
       "explanation": "The weight of the bar and collars are to be 25kg.",
       "status": "validated",
@@ -56,7 +56,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "a.6",
-        "pageNumber": 8
+        "pageNumber": 7
       },
       "explanation": "There shall be a diameter machined marking to measure 81cm between markings.",
       "status": "review_later",
@@ -76,7 +76,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "b.3",
-        "pageNumber": 9
+        "pageNumber": 8
       },
       "explanation": "Discs must be within the following range: 1.25kg, 2.5kg, 5kg, 10kg, 15kg, 20kg, and 25kg.",
       "status": "validated",
@@ -96,7 +96,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "b.6",
-        "pageNumber": 9
+        "pageNumber": 8
       },
       "explanation": "Discs must conform to the following color code: 25kg - red, 20kg - blue, 15kg - yellow, 10kg and under - any color.",
       "status": "validated",
@@ -116,7 +116,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "b.6",
-        "pageNumber": 9
+        "pageNumber": 8
       },
       "explanation": "Discs must conform to the following color code: 20kg - blue.",
       "status": "validated",
@@ -136,7 +136,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "b.6",
-        "pageNumber": 9
+        "pageNumber": 8
       },
       "explanation": "Discs must conform to the following color code: 15kg - yellow.",
       "status": "validated",
@@ -195,7 +195,7 @@
       "ruleReference": {
         "section": "Equipment and Specifications",
         "subsection": "Bench",
-        "ruleNumber": "1",
+        "ruleNumber": "Length",
         "pageNumber": 9
       },
       "explanation": "The bench length shall not be less than 1.22m and shall be flat and level.",
@@ -215,7 +215,7 @@
       "ruleReference": {
         "section": "Equipment and Specifications",
         "subsection": "Bench",
-        "ruleNumber": "2",
+        "ruleNumber": "Width",
         "pageNumber": 9
       },
       "explanation": "The bench width shall not be less than 29cm and not exceeding 32cm.",
@@ -235,7 +235,7 @@
       "ruleReference": {
         "section": "Equipment and Specifications",
         "subsection": "Bench",
-        "ruleNumber": "3",
+        "ruleNumber": "Height",
         "pageNumber": 9
       },
       "explanation": "The bench height shall not be less than 42cm and not exceeding 45cm measured from the floor to the top of the padded surface.",
@@ -376,7 +376,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Bench Press",
         "ruleNumber": "2",
-        "pageNumber": 21
+        "pageNumber": 22
       },
       "explanation": "The lifter must lie on his back with head, shoulders, and buttocks in contact with the bench surface.",
       "status": "validated",
@@ -396,7 +396,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Bench Press",
         "ruleNumber": "5",
-        "pageNumber": 21
+        "pageNumber": 22
       },
       "explanation": "The spacing of the hands shall not exceed 81cm measured between the forefingers.",
       "status": "review_later",
@@ -416,7 +416,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Bench Press",
         "ruleNumber": "5",
-        "pageNumber": 21
+        "pageNumber": 22
       },
       "explanation": "The use of the reverse grip is forbidden.",
       "status": "validated",
@@ -516,7 +516,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Bench Press",
         "ruleNumber": "3",
-        "pageNumber": 21
+        "pageNumber": 22
       },
       "explanation": "The lifter may use flat surfaced plates, or blocks not exceeding 30cm in total height to build up the surface of the platform.",
       "status": "validated",
@@ -536,7 +536,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Bench Press",
         "ruleNumber": "3",
-        "pageNumber": 21
+        "pageNumber": 22
       },
       "explanation": "Foot blocks should have a minimum dimension of 60cm x 40cm.",
       "status": "validated",
@@ -556,7 +556,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Deadlift",
         "ruleNumber": "3",
-        "pageNumber": 26
+        "pageNumber": 25
       },
       "explanation": "The Chief Referee's signal shall consist of a downward movement of the arm and the audible command 'Down'.",
       "status": "validated",
@@ -576,7 +576,7 @@
         "section": "Referees",
         "subsection": "Signals",
         "ruleNumber": "3",
-        "pageNumber": 34
+        "pageNumber": 36
       },
       "explanation": "For deadlift commencement, no signal is required.",
       "status": "validated",
@@ -596,7 +596,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Deadlift",
         "ruleNumber": "2",
-        "pageNumber": 26
+        "pageNumber": 25
       },
       "explanation": "On completion of the lift the knees shall be locked in a straight position and the shoulders back.",
       "status": "validated",
@@ -616,7 +616,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Causes for Disqualification of a Deadlift",
         "ruleNumber": "4",
-        "pageNumber": 26
+        "pageNumber": 25
       },
       "explanation": "Supporting the bar on the thighs during the performance of the lift causes disqualification. If the bar edges up the thigh but is not supported, this is not reason for disqualification.",
       "status": "validated",
@@ -636,7 +636,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Deadlift",
         "ruleNumber": "4",
-        "pageNumber": 26
+        "pageNumber": 25
       },
       "explanation": "Once the attempt has begun no downward movement is allowed until the lifter reaches the erect position with the knees locked. If the bar settles as the shoulders come back, this should not be reason to disqualify the lift.",
       "status": "review_later",
@@ -715,7 +715,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Wraps - Wrists",
-        "ruleNumber": "1",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "Wrist wraps shall not exceed 1m in length and 8cm in width.",
@@ -735,7 +735,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Wraps - Wrists",
-        "ruleNumber": "1",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "Wrist wraps shall not exceed 1m in length and 8cm in width.",
@@ -755,7 +755,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Wraps - Wrists",
-        "ruleNumber": "2",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "A wrist covering shall not extend beyond 10cm above and 2cm below the center of the wrist joint and shall not exceed a covering width of 12cm.",
@@ -775,7 +775,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Wraps - Knees",
-        "ruleNumber": "1",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "Wraps not exceeding 2m in length and 8cm in width may be worn only in competitions which are designated as Equipped.",
@@ -795,7 +795,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Wraps - Knees",
-        "ruleNumber": "1",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "A knee wrap shall not extend beyond 15cm above and 15cm below the center of the knee joint and shall not exceed a total covering width of 30cm.",
@@ -816,7 +816,7 @@
         "section": "Personal Equipment",
         "subsection": "Knee Sleeves",
         "ruleNumber": "b",
-        "pageNumber": 18
+        "pageNumber": 17
       },
       "explanation": "Knee sleeves shall be of a maximum thickness of 7mm and a maximum length of 30cm.",
       "status": "validated",
@@ -836,7 +836,7 @@
         "section": "Personal Equipment",
         "subsection": "Knee Sleeves",
         "ruleNumber": "b",
-        "pageNumber": 18
+        "pageNumber": 17
       },
       "explanation": "Knee sleeves shall be of a maximum thickness of 7mm and a maximum length of 30cm.",
       "status": "validated",
@@ -855,7 +855,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Wraps - Knees",
-        "ruleNumber": "1",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "A combination of the two is strictly forbidden.",
@@ -1016,7 +1016,7 @@
         "section": "Referees",
         "subsection": "",
         "ruleNumber": "1",
-        "pageNumber": 34
+        "pageNumber": 36
       },
       "explanation": "The referees shall be three in number, the Chief Referee and two side referees.",
       "status": "pending"
@@ -1035,7 +1035,7 @@
         "section": "Referees",
         "subsection": "",
         "ruleNumber": "4",
-        "pageNumber": 35
+        "pageNumber": 36
       },
       "explanation": "A majority decision (at least two white lights) is required for a successful lift.",
       "status": "pending"
@@ -1054,7 +1054,7 @@
         "section": "Weighing In",
         "subsection": "",
         "ruleNumber": "3",
-        "pageNumber": 27
+        "pageNumber": 26
       },
       "explanation": "The weigh in period will last one and a half hours.",
       "status": "pending"
@@ -1073,7 +1073,7 @@
         "section": "Weighing In",
         "subsection": "",
         "ruleNumber": "1",
-        "pageNumber": 27
+        "pageNumber": 26
       },
       "explanation": "Weighing in must take place no earlier than two hours before the start of the competition.",
       "status": "pending"
@@ -1092,7 +1092,7 @@
         "section": "Weighing In",
         "subsection": "",
         "ruleNumber": "6",
-        "pageNumber": 27
+        "pageNumber": 26
       },
       "explanation": "Each lifter may only be weighed once. Only those whose bodyweight is heavier or lighter than the category limits are allowed to return to the scales.",
       "status": "pending"
@@ -1187,7 +1187,7 @@
         "section": "Order of Competition",
         "subsection": "The Round System",
         "ruleNumber": "l",
-        "pageNumber": 30
+        "pageNumber": 29
       },
       "explanation": "In the third round of the deadlift, two changes are permitted.",
       "status": "pending"
@@ -1206,7 +1206,7 @@
         "section": "Order of Competition",
         "subsection": "The Round System",
         "ruleNumber": "k",
-        "pageNumber": 30
+        "pageNumber": 29
       },
       "explanation": "Weights submitted for second round attempts cannot be changed. Similarly, third round attempts on the squat and bench press cannot be changed.",
       "status": "pending"
@@ -1225,7 +1225,7 @@
         "section": "Miscellaneous Rules",
         "subsection": "",
         "ruleNumber": "6",
-        "pageNumber": 33
+        "pageNumber": 34
       },
       "explanation": "Three unsuccessful attempts in any lift will automatically eliminate the lifter from the overall competition. He may still compete for awards on individual lifts.",
       "status": "pending"
@@ -1396,7 +1396,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "a.1",
-        "pageNumber": 8
+        "pageNumber": 7
       },
       "explanation": "Total overall length not to exceed 2.2m.",
       "status": "pending"
@@ -1415,7 +1415,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "a.2",
-        "pageNumber": 8
+        "pageNumber": 7
       },
       "explanation": "Distance between the collar faces is not to exceed 1.32m or be less than 1.31m.",
       "status": "pending"
@@ -1434,7 +1434,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "a.5",
-        "pageNumber": 8
+        "pageNumber": 7
       },
       "explanation": "Diameter of the sleeve not to exceed 52mm or be less than 50mm.",
       "status": "pending"
@@ -1453,7 +1453,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "b.9",
-        "pageNumber": 9
+        "pageNumber": 8
       },
       "explanation": "The diameter of the largest discs shall not be more than 45cm.",
       "status": "pending"
@@ -1472,7 +1472,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Bars and Discs",
         "ruleNumber": "b.8",
-        "pageNumber": 9
+        "pageNumber": 8
       },
       "explanation": "The first and heaviest discs loaded on the bar must be loaded face in; with the rest of the discs loaded face out.",
       "status": "pending"
@@ -1491,7 +1491,7 @@
         "section": "Jury and Technical Committee",
         "subsection": "Jury",
         "ruleNumber": "2",
-        "pageNumber": 37
+        "pageNumber": 41
       },
       "explanation": "The Jury shall consist of three or five Category 1 referees.",
       "status": "pending"
@@ -1510,7 +1510,7 @@
         "section": "Jury and Technical Committee",
         "subsection": "Jury",
         "ruleNumber": "9",
-        "pageNumber": 38
+        "pageNumber": 41
       },
       "explanation": "Only in extreme circumstances when there has been an obvious or blatant mistake in the refereeing will the Jury by unanimous jury vote with 3 Member Jury may reverse the decision.",
       "status": "pending"
@@ -1700,7 +1700,7 @@
         "section": "Personal Equipment",
         "subsection": "Suits - Non-supportive",
         "ruleNumber": "e",
-        "pageNumber": 14
+        "pageNumber": 13
       },
       "explanation": "There must be legs to the non-supportive suit, extending a minimum of 3cm and a maximum of 25cm.",
       "status": "pending"
@@ -1719,7 +1719,7 @@
         "section": "Personal Equipment",
         "subsection": "T-Shirt",
         "ruleNumber": "b",
-        "pageNumber": 15
+        "pageNumber": 14
       },
       "explanation": "Those sleeves must terminate below the lifter's deltoid and must not extend onto or below the lifter's elbow.",
       "status": "pending"
@@ -1738,7 +1738,7 @@
         "section": "Personal Equipment",
         "subsection": "Knee Sleeves",
         "ruleNumber": "d",
-        "pageNumber": 18
+        "pageNumber": 17
       },
       "explanation": "When worn by the lifter in competition, knee sleeves must not be in contact with the lifter's suit (other than long legged) or socks.",
       "status": "pending"
@@ -1756,8 +1756,8 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Medical Tape",
-        "ruleNumber": "1",
-        "pageNumber": 19
+        "ruleNumber": "",
+        "pageNumber": 18
       },
       "explanation": "Two layers of medical tape may be worn around the thumbs.",
       "status": "pending"
@@ -1775,7 +1775,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Head Wear",
-        "ruleNumber": "1",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "Hats are strictly forbidden to be worn on the platform during lifting.",
@@ -1794,7 +1794,7 @@
       "ruleReference": {
         "section": "Personal Equipment",
         "subsection": "Head Wear",
-        "ruleNumber": "2",
+        "ruleNumber": "",
         "pageNumber": 18
       },
       "explanation": "Lifters may wear Hijab (head scarf) while lifting.",
@@ -1833,7 +1833,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Failure Cards",
         "ruleNumber": "2",
-        "pageNumber": 11
+        "pageNumber": 10
       },
       "explanation": "Blue card (failure 2) for squat: Failure to assume an upright position with knees locked, or double bouncing/any downward movement during the ascent.",
       "status": "pending"
@@ -1852,7 +1852,7 @@
         "section": "Equipment and Specifications",
         "subsection": "Failure Cards",
         "ruleNumber": "3",
-        "pageNumber": 12
+        "pageNumber": 11
       },
       "explanation": "Yellow card (failure 3) for squat: Stepping backward or forward or moving feet laterally, or failure to observe Chief Referee's signals.",
       "status": "pending"
@@ -1870,7 +1870,7 @@
       "ruleReference": {
         "section": "Equipment and Specifications",
         "subsection": "Bench",
-        "ruleNumber": "3",
+        "ruleNumber": "Height",
         "pageNumber": 9
       },
       "explanation": "The height of the uprights shall be a minimum of 75cm to a maximum of 110cm measured from the floor to the bar rest position.",
@@ -1889,7 +1889,7 @@
       "ruleReference": {
         "section": "Equipment and Specifications",
         "subsection": "Bench",
-        "ruleNumber": "4",
+        "ruleNumber": "Bar rests",
         "pageNumber": 9
       },
       "explanation": "Minimum width between insides of bar rests shall be 1.10m.",
@@ -1908,7 +1908,7 @@
       "ruleReference": {
         "section": "Equipment and Specifications",
         "subsection": "Bench",
-        "ruleNumber": "5",
+        "ruleNumber": "Head",
         "pageNumber": 9
       },
       "explanation": "The head of the bench shall extend 22cm beyond the center of the uprights with a tolerance of 5cm either way.",
@@ -1947,7 +1947,7 @@
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Causes for Disqualification of a Deadlift",
         "ruleNumber": "5",
-        "pageNumber": 26
+        "pageNumber": 25
       },
       "explanation": "Foot movement after the command 'Down' will not be cause for failure.",
       "status": "pending"
