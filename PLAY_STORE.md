@@ -67,7 +67,6 @@ KEY FEATURES
 🔒 Privacy-First
 • Completely offline - no internet required
 • No data collection or tracking
-• No ads or in-app purchases
 • No permissions required
 
 WHO IS THIS FOR?
@@ -80,7 +79,7 @@ WHO IS THIS FOR?
 
 BASED ON OFFICIAL RULES
 
-All questions are based on the IPF Technical Rules Book (March 2025 version). The app is regularly updated to reflect the latest rule changes and clarifications.
+All questions are based on the IPF Technical Rules Book (March 2026 version). The app is regularly updated to reflect the latest rule changes and clarifications.
 
 PERFECT FOR EXAM PREPARATION
 
@@ -98,7 +97,7 @@ HOW IT WORKS
 4. Review answers to learn from mistakes
 5. Retake the quiz to improve your score
 
-NO ADS, NO TRACKING, NO HASSLE
+NO TRACKING, NO HASSLE
 
 Focus on learning without distractions. This app is built for education, not data collection. Everything works offline, so you can study anywhere, anytime.
 
@@ -130,12 +129,12 @@ powerlifting, IPF, rules, quiz, strength training, competition, referee, coachin
 ```
 🎉 Initial Release
 
-• 15 comprehensive questions covering IPF technical rules
+• 100 comprehensive questions covering IPF technical rules
 • Interactive multiple-choice quiz format
 • Detailed results with score percentage and pass/fail
 • Answer review with rulebook references
 • Complete explanations for every question
-• Based on March 2025 IPF Technical Rules Book
+• Based on March 2026 IPF Technical Rules Book
 • Offline functionality - no internet required
 • Privacy-first design with no data collection
 
@@ -242,4 +241,4 @@ Future considerations:
 
 ---
 
-Last Updated: November 22, 2025
+Last Updated: March 12, 2026
