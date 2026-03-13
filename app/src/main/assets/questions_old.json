@@ -1,0 +1,1906 @@
+{
+  "version": "2025-v2",
+  "lastUpdated": "2025-02-23",
+  "questions": [
+    {
+      "id": 1,
+      "question": "What is the diameter of a powerlifting bar according to IPF specifications?",
+      "options": [
+        "26-27mm",
+        "28-29mm",
+        "30-31mm",
+        "32-33mm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "a.3",
+        "pageNumber": 8
+      },
+      "explanation": "The diameter of the bar must not exceed 29mm or be less than 28mm.",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "question": "What is the total weight of the bar and collars in IPF competitions?",
+      "options": [
+        "11kg",
+        "15kg",
+        "17kg",
+        "25kg"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "a.4",
+        "pageNumber": 8
+      },
+      "explanation": "The weight of the bar and collars are to be 25kg.",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "question": "What is the distance between the 81cm marks on the bar used for bench press grip measurement?",
+      "options": [
+        "32cm",
+        "46cm",
+        "55cm",
+        "81cm"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "a.6",
+        "pageNumber": 8
+      },
+      "explanation": "There shall be a diameter machined marking to measure 81cm between markings.",
+      "status": "pending"
+    },
+    {
+      "id": 4,
+      "question": "What is the maximum weight of competition discs in IPF competitions?",
+      "options": [
+        "9kg",
+        "14kg",
+        "19kg",
+        "25kg"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "b.3",
+        "pageNumber": 9
+      },
+      "explanation": "Discs must be within the following range: 1.25kg, 2.5kg, 5kg, 10kg, 15kg, 20kg, and 25kg.",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "question": "What color must 25kg discs be according to IPF rules?",
+      "options": [
+        "Red",
+        "Green",
+        "Yellow",
+        "Blue"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "b.6",
+        "pageNumber": 9
+      },
+      "explanation": "Discs must conform to the following color code: 25kg - red, 20kg - blue, 15kg - yellow, 10kg and under - any color.",
+      "status": "pending"
+    },
+    {
+      "id": 6,
+      "question": "What color must 20kg discs be according to IPF rules?",
+      "options": [
+        "Blue",
+        "Red",
+        "Yellow",
+        "Green"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "b.6",
+        "pageNumber": 9
+      },
+      "explanation": "Discs must conform to the following color code: 20kg - blue.",
+      "status": "pending"
+    },
+    {
+      "id": 7,
+      "question": "What color must 15kg discs be according to IPF rules?",
+      "options": [
+        "Red",
+        "Yellow",
+        "Blue",
+        "Green"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "b.6",
+        "pageNumber": 9
+      },
+      "explanation": "Discs must conform to the following color code: 15kg - yellow.",
+      "status": "pending"
+    },
+    {
+      "id": 8,
+      "question": "How much must each collar weigh?",
+      "options": [
+        "2.5kg",
+        "3.2kg",
+        "3.7kg",
+        "3.9kg"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Collars",
+        "ruleNumber": "b",
+        "pageNumber": 9
+      },
+      "explanation": "Collars must weigh 2.5kg each.",
+      "status": "pending"
+    },
+    {
+      "id": 9,
+      "question": "What is the minimum height range for squat rack adjustment?",
+      "options": [
+        "1.00m to 1.70m",
+        "1.3m",
+        "1.5m",
+        "1.6m"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Squat Racks",
+        "ruleNumber": "2",
+        "pageNumber": 9
+      },
+      "explanation": "The squat racks shall be designed to adjust from a minimum height of 1.00m in the lowest position to extend to a height of at least 1.70m in 2.5cm increments.",
+      "status": "pending"
+    },
+    {
+      "id": 10,
+      "question": "What is the minimum length of the competition bench?",
+      "options": [
+        "0.8m",
+        "0.9m",
+        "1.22m",
+        "1.5m"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bench",
+        "ruleNumber": "1",
+        "pageNumber": 9
+      },
+      "explanation": "The bench length shall not be less than 1.22m and shall be flat and level.",
+      "status": "pending"
+    },
+    {
+      "id": 11,
+      "question": "What is the width range of the bench pad?",
+      "options": [
+        "25-28cm",
+        "29-32cm",
+        "33-36cm",
+        "37-40cm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bench",
+        "ruleNumber": "2",
+        "pageNumber": 9
+      },
+      "explanation": "The bench width shall not be less than 29cm and not exceeding 32cm.",
+      "status": "pending"
+    },
+    {
+      "id": 12,
+      "question": "What is the height range of the bench from the floor?",
+      "options": [
+        "38-41cm",
+        "42-45cm",
+        "46-49cm",
+        "50-53cm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bench",
+        "ruleNumber": "3",
+        "pageNumber": 9
+      },
+      "explanation": "The bench height shall not be less than 42cm and not exceeding 45cm measured from the floor to the top of the padded surface.",
+      "status": "pending"
+    },
+    {
+      "id": 13,
+      "question": "What color light indicates a successful lift in IPF competition?",
+      "options": [
+        "Blue",
+        "White",
+        "Green",
+        "Yellow"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Lights",
+        "ruleNumber": "",
+        "pageNumber": 10
+      },
+      "explanation": "White light represents a 'good lift' and red light represents 'no lift'.",
+      "status": "pending"
+    },
+    {
+      "id": 14,
+      "question": "What is the minimum squat depth required for a good lift?",
+      "options": [
+        "Thighs parallel to ground",
+        "Hips level with knees",
+        "90 degrees at knee",
+        "Top of legs at hip below top of knees"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Squat",
+        "ruleNumber": "3",
+        "pageNumber": 20
+      },
+      "explanation": "The lifter must bend the knees and lower the body until the top surface of the legs at the hip joint is lower than the top of the knees.",
+      "status": "pending"
+    },
+    {
+      "id": 15,
+      "question": "What is the Chief Referee's command to start the squat?",
+      "options": [
+        "Start",
+        "Go",
+        "Squat",
+        "Begin"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Squat",
+        "ruleNumber": "2",
+        "pageNumber": 20
+      },
+      "explanation": "The signal shall consist of a downward movement of the arm and the audible command 'Squat'.",
+      "status": "pending"
+    },
+    {
+      "id": 16,
+      "question": "What is the Chief Referee's command to end the squat?",
+      "options": [
+        "Stop",
+        "Rack",
+        "Down",
+        "Finish"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Squat",
+        "ruleNumber": "5",
+        "pageNumber": 20
+      },
+      "explanation": "The signal to rack the bar will consist of a backward motion of the arm and the audible command 'Rack'.",
+      "status": "pending"
+    },
+    {
+      "id": 17,
+      "question": "How many spotter/loaders can be on the platform at any time?",
+      "options": [
+        "1-3",
+        "2-4",
+        "2-5",
+        "3-6"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Squat",
+        "ruleNumber": "6",
+        "pageNumber": 20
+      },
+      "explanation": "Not more than five and not less than two spotter/loaders shall be on the platform at any time.",
+      "status": "pending"
+    },
+    {
+      "id": 18,
+      "question": "Is double bouncing at the bottom of the squat allowed?",
+      "options": [
+        "No, it causes disqualification",
+        "Yes, if controlled",
+        "Yes, always",
+        "Only in equipped lifting"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Causes for Disqualification of a Squat",
+        "ruleNumber": "2",
+        "pageNumber": 21
+      },
+      "explanation": "Double bouncing at the bottom of the lift, or any downward movement during the ascent causes disqualification.",
+      "status": "pending"
+    },
+    {
+      "id": 19,
+      "question": "What must be in contact with the bench during the bench press?",
+      "options": [
+        "Entire back",
+        "Head and shoulders only",
+        "Only buttocks",
+        "Head, shoulders, and buttocks"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "2",
+        "pageNumber": 21
+      },
+      "explanation": "The lifter must lie on his back with head, shoulders, and buttocks in contact with the bench surface.",
+      "status": "pending"
+    },
+    {
+      "id": 20,
+      "question": "What is the maximum grip width allowed on bench press?",
+      "options": [
+        "63forefingers",
+        "81cm between forefingers",
+        "97forefingers",
+        "115forefingers"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "5",
+        "pageNumber": 21
+      },
+      "explanation": "The spacing of the hands shall not exceed 81cm measured between the forefingers.",
+      "status": "pending"
+    },
+    {
+      "id": 21,
+      "question": "Is the reverse grip allowed in bench press?",
+      "options": [
+        "Yes, always",
+        "Yes, only in equipped",
+        "Only with referee approval",
+        "No, it is forbidden"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "5",
+        "pageNumber": 21
+      },
+      "explanation": "The use of the reverse grip is forbidden.",
+      "status": "pending"
+    },
+    {
+      "id": 22,
+      "question": "What is the Chief Referee's command to start the bench press?",
+      "options": [
+        "Begin",
+        "Start",
+        "Press",
+        "Go"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "7",
+        "pageNumber": 22
+      },
+      "explanation": "The signal to begin the attempt shall consist of a downward movement of the arm together with the audible command 'Start'.",
+      "status": "pending"
+    },
+    {
+      "id": 23,
+      "question": "What command is given after the bar is motionless on the chest in bench press?",
+      "options": [
+        "Push",
+        "Start",
+        "Press",
+        "Go"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "8",
+        "pageNumber": 22
+      },
+      "explanation": "After the bar is held motionless on the chest, the Chief referee will signal the audible command 'Press'.",
+      "status": "pending"
+    },
+    {
+      "id": 24,
+      "question": "What is required for the bar position on the chest during bench press?",
+      "options": [
+        "Bar must hover above chest",
+        "Bar must touch chest lightly",
+        "Bar must bounce off chest",
+        "Bar must be held motionless with visible pause"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "8",
+        "pageNumber": 22
+      },
+      "explanation": "The lifter must lower the bar to the chest or abdominal area and hold it motionless with a definite and visible pause.",
+      "status": "pending"
+    },
+    {
+      "id": 25,
+      "question": "Can the bar touch the belt during bench press?",
+      "options": [
+        "Yes, it's allowed",
+        "Only if paused",
+        "No, it causes disqualification",
+        "Only in equipped lifting"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "8",
+        "pageNumber": 22
+      },
+      "explanation": "The bar shall not touch the belt. If the bar is lowered to the belt, the Chief Referee's command is 'Rack'.",
+      "status": "pending"
+    },
+    {
+      "id": 26,
+      "question": "What maximum height are foot blocks allowed for bench press?",
+      "options": [
+        "24cm",
+        "30cm",
+        "37cm",
+        "43cm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "3",
+        "pageNumber": 21
+      },
+      "explanation": "The lifter may use flat surfaced plates, or blocks not exceeding 30cm in total height to build up the surface of the platform.",
+      "status": "pending"
+    },
+    {
+      "id": 27,
+      "question": "What is the minimum foot block dimension required at international competitions?",
+      "options": [
+        "26cm",
+        "34cm",
+        "40cm",
+        "60cm x 40cm"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "3",
+        "pageNumber": 21
+      },
+      "explanation": "Foot blocks should have a minimum dimension of 60cm x 40cm.",
+      "status": "pending"
+    },
+    {
+      "id": 28,
+      "question": "What is the command to end the deadlift?",
+      "options": [
+        "Stop",
+        "Rack",
+        "Finish",
+        "Down"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Deadlift",
+        "ruleNumber": "3",
+        "pageNumber": 26
+      },
+      "explanation": "The Chief Referee's signal shall consist of a downward movement of the arm and the audible command 'Down'.",
+      "status": "pending"
+    },
+    {
+      "id": 29,
+      "question": "Is there a start command for the deadlift?",
+      "options": [
+        "Yes, the command is 'Go'",
+        "No, no signal is required",
+        "Yes, the command is 'Start'",
+        "Yes, the command is 'Lift'"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Referees",
+        "subsection": "Signals",
+        "ruleNumber": "3",
+        "pageNumber": 34
+      },
+      "explanation": "For deadlift commencement, no signal is required.",
+      "status": "pending"
+    },
+    {
+      "id": 30,
+      "question": "What position must the lifter be in at the completion of the deadlift?",
+      "options": [
+        "Leaning forward",
+        "Standing erect with knees locked and shoulders back",
+        "Any upright position",
+        "Knees slightly bent"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Deadlift",
+        "ruleNumber": "2",
+        "pageNumber": 26
+      },
+      "explanation": "On completion of the lift the knees shall be locked in a straight position and the shoulders back.",
+      "status": "pending"
+    },
+    {
+      "id": 31,
+      "question": "Is supporting the bar on the thighs allowed during deadlift?",
+      "options": [
+        "Yes, always",
+        "Yes, briefly",
+        "Only in competition",
+        "No, it's cause for disqualification"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Causes for Disqualification of a Deadlift",
+        "ruleNumber": "4",
+        "pageNumber": 26
+      },
+      "explanation": "Supporting the bar on the thighs during the performance of the lift causes disqualification. If the bar edges up the thigh but is not supported, this is not reason for disqualification.",
+      "status": "pending"
+    },
+    {
+      "id": 32,
+      "question": "Is any downward movement of the bar allowed during deadlift?",
+      "options": [
+        "No, until final position is reached",
+        "Only after lockout",
+        "Yes, once",
+        "Yes, for repositioning"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Deadlift",
+        "ruleNumber": "4",
+        "pageNumber": 26
+      },
+      "explanation": "Once the attempt has begun no downward movement is allowed until the lifter reaches the erect position with the knees locked. If the bar settles as the shoulders come back, this should not be reason to disqualify the lift.",
+      "status": "pending"
+    },
+    {
+      "id": 33,
+      "question": "What is the maximum belt width allowed?",
+      "options": [
+        "10cm",
+        "13cm",
+        "14cm",
+        "16cm"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Belt",
+        "ruleNumber": "1",
+        "pageNumber": 17
+      },
+      "explanation": "Width of belt maximum 10cm.",
+      "status": "pending"
+    },
+    {
+      "id": 34,
+      "question": "What is the maximum belt thickness?",
+      "options": [
+        "10mm",
+        "13mm",
+        "15mm",
+        "19mm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Belt",
+        "ruleNumber": "2",
+        "pageNumber": 17
+      },
+      "explanation": "Thickness of belt maximum 13mm along the main length.",
+      "status": "pending"
+    },
+    {
+      "id": 35,
+      "question": "Is wearing a belt mandatory in IPF competition?",
+      "options": [
+        "No, it is optional",
+        "Only for squat",
+        "Yes, always required",
+        "Only for deadlift"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Belt",
+        "ruleNumber": "",
+        "pageNumber": 17
+      },
+      "explanation": "Competitors may wear a belt. If worn, it shall be on the outside of the lifting suit.",
+      "status": "pending"
+    },
+    {
+      "id": 36,
+      "question": "What is the maximum wrist wrap length?",
+      "options": [
+        "1m",
+        "1m",
+        "1m",
+        "1m"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Wraps - Wrists",
+        "ruleNumber": "1",
+        "pageNumber": 18
+      },
+      "explanation": "Wrist wraps shall not exceed 1m in length and 8cm in width.",
+      "status": "pending"
+    },
+    {
+      "id": 37,
+      "question": "What is the maximum wrist wrap width?",
+      "options": [
+        "6cm",
+        "8cm",
+        "10cm",
+        "11cm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Wraps - Wrists",
+        "ruleNumber": "1",
+        "pageNumber": 18
+      },
+      "explanation": "Wrist wraps shall not exceed 1m in length and 8cm in width.",
+      "status": "pending"
+    },
+    {
+      "id": 38,
+      "question": "What is the maximum total wrist covering width?",
+      "options": [
+        "8cm",
+        "10cm",
+        "12cm",
+        "15cm"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Wraps - Wrists",
+        "ruleNumber": "2",
+        "pageNumber": 18
+      },
+      "explanation": "A wrist covering shall not extend beyond 10cm above and 2cm below the center of the wrist joint and shall not exceed a covering width of 12cm.",
+      "status": "pending"
+    },
+    {
+      "id": 39,
+      "question": "What is the maximum knee wrap length in equipped competitions?",
+      "options": [
+        "1m",
+        "2m",
+        "2m",
+        "3m"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Wraps - Knees",
+        "ruleNumber": "1",
+        "pageNumber": 18
+      },
+      "explanation": "Wraps not exceeding 2m in length and 8cm in width may be worn only in competitions which are designated as Equipped.",
+      "status": "pending"
+    },
+    {
+      "id": 40,
+      "question": "What is the maximum total knee wrap coverage width?",
+      "options": [
+        "23cm",
+        "30cm",
+        "37cm",
+        "42cm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Wraps - Knees",
+        "ruleNumber": "1",
+        "pageNumber": 18
+      },
+      "explanation": "A knee wrap shall not extend beyond 15cm above and 15cm below the center of the knee joint and shall not exceed a total covering width of 30cm.",
+      "status": "pending"
+    },
+    {
+      "id": 41,
+      "question": "What is the maximum knee sleeve thickness?",
+      "options": [
+        "7mm",
+        "9mm",
+        "10mm",
+        "11mm"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Knee Sleeves",
+        "ruleNumber": "b",
+        "pageNumber": 18
+      },
+      "explanation": "Knee sleeves shall be of a maximum thickness of 7mm and a maximum length of 30cm.",
+      "status": "pending"
+    },
+    {
+      "id": 42,
+      "question": "What is the maximum knee sleeve length?",
+      "options": [
+        "30cm",
+        "39cm",
+        "44cm",
+        "47cm"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Knee Sleeves",
+        "ruleNumber": "b",
+        "pageNumber": 18
+      },
+      "explanation": "Knee sleeves shall be of a maximum thickness of 7mm and a maximum length of 30cm.",
+      "status": "pending"
+    },
+    {
+      "id": 43,
+      "question": "Can knee wraps and knee sleeves be worn together?",
+      "options": [
+        "Yes, in equipped only",
+        "Only with approval",
+        "No, it is strictly forbidden",
+        "Yes, always"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Wraps - Knees",
+        "ruleNumber": "1",
+        "pageNumber": 18
+      },
+      "explanation": "A combination of the two is strictly forbidden.",
+      "status": "pending"
+    },
+    {
+      "id": 44,
+      "question": "What must be worn to protect shins during deadlift?",
+      "options": [
+        "Shin length socks",
+        "Knee high socks",
+        "Nothing required",
+        "Shin guards"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Socks",
+        "ruleNumber": "",
+        "pageNumber": 16
+      },
+      "explanation": "Shin length socks must be worn to cover and protect the shins while performing the deadlift.",
+      "status": "pending"
+    },
+    {
+      "id": 45,
+      "question": "Are full length leg stockings allowed?",
+      "options": [
+        "Yes, in competition only",
+        "No, strictly forbidden",
+        "Yes, in any color",
+        "Only in cold weather"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Socks",
+        "ruleNumber": "c",
+        "pageNumber": 16
+      },
+      "explanation": "Full length leg stockings, tights or hose are strictly forbidden.",
+      "status": "pending"
+    },
+    {
+      "id": 46,
+      "question": "What is the maximum shoe sole height?",
+      "options": [
+        "4cm",
+        "5cm",
+        "6cm",
+        "7cm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Shoes or Boots",
+        "ruleNumber": "b",
+        "pageNumber": 17
+      },
+      "explanation": "No part of the underside shall be higher than 5cm.",
+      "status": "pending"
+    },
+    {
+      "id": 47,
+      "question": "How many attempts is each lifter allowed per lift?",
+      "options": [
+        "2",
+        "2",
+        "3",
+        "4"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "General Rules of Powerlifting",
+        "subsection": "",
+        "ruleNumber": "e",
+        "pageNumber": 4
+      },
+      "explanation": "Each competitor is allowed three attempts on each lift.",
+      "status": "pending"
+    },
+    {
+      "id": 48,
+      "question": "In what order must the lifts be performed in competition?",
+      "options": [
+        "Any order",
+        "Squat, Bench Press, Deadlift",
+        "Deadlift, Bench Press, Squat",
+        "Bench Press, Squat, Deadlift"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "General Rules of Powerlifting",
+        "subsection": "",
+        "ruleNumber": "a",
+        "pageNumber": 4
+      },
+      "explanation": "The IPF recognizes the following lifts which must be taken in the same sequence: Squat, Bench Press, Deadlift.",
+      "status": "pending"
+    },
+    {
+      "id": 49,
+      "question": "How is ranking determined when two lifters achieve the same total?",
+      "options": [
+        "Heavier lifter ranks higher",
+        "Lighter lifter ranks higher",
+        "First to achieve the total",
+        "Lot number"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "General Rules of Powerlifting",
+        "subsection": "",
+        "ruleNumber": "e",
+        "pageNumber": 4
+      },
+      "explanation": "If two or more lifters achieve the same total, the lighter lifter ranks above the heavier lifter.",
+      "status": "pending"
+    },
+    {
+      "id": 50,
+      "question": "If two lifters weigh the same and achieve the same total, who wins?",
+      "options": [
+        "The heavier one",
+        "The one with best squat",
+        "They tie",
+        "The one who achieved total first"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "General Rules of Powerlifting",
+        "subsection": "",
+        "ruleNumber": "f",
+        "pageNumber": 4
+      },
+      "explanation": "If two lifters register the same bodyweight and achieve the same total, the lifter making the total first will take precedence.",
+      "status": "pending"
+    },
+    {
+      "id": 51,
+      "question": "How many referees officiate each lift?",
+      "options": [
+        "3",
+        "3",
+        "3",
+        "4"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Referees",
+        "subsection": "",
+        "ruleNumber": "1",
+        "pageNumber": 34
+      },
+      "explanation": "The referees shall be three in number, the Chief Referee and two side referees.",
+      "status": "pending"
+    },
+    {
+      "id": 52,
+      "question": "What is required for a lift to be considered successful?",
+      "options": [
+        "At least two white lights",
+        "All three white lights",
+        "Chief referee approval only",
+        "Majority of jury"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Referees",
+        "subsection": "",
+        "ruleNumber": "4",
+        "pageNumber": 35
+      },
+      "explanation": "A majority decision (at least two white lights) is required for a successful lift.",
+      "status": "pending"
+    },
+    {
+      "id": 53,
+      "question": "How long is the weigh-in period?",
+      "options": [
+        "1.0hours",
+        "1.2hours",
+        "1.5 hours",
+        "1.8hours"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Weighing In",
+        "subsection": "",
+        "ruleNumber": "3",
+        "pageNumber": 27
+      },
+      "explanation": "The weigh in period will last one and a half hours.",
+      "status": "pending"
+    },
+    {
+      "id": 54,
+      "question": "How early before competition does weighing-in take place?",
+      "options": [
+        "2hours",
+        "2 hours",
+        "2hours",
+        "3hours"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Weighing In",
+        "subsection": "",
+        "ruleNumber": "1",
+        "pageNumber": 27
+      },
+      "explanation": "Weighing in must take place no earlier than two hours before the start of the competition.",
+      "status": "pending"
+    },
+    {
+      "id": 55,
+      "question": "How many times can a lifter be weighed officially?",
+      "options": [
+        "Twice",
+        "Unlimited within time limit",
+        "Three times",
+        "Once only"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Weighing In",
+        "subsection": "",
+        "ruleNumber": "6",
+        "pageNumber": 27
+      },
+      "explanation": "Each lifter may only be weighed once. Only those whose bodyweight is heavier or lighter than the category limits are allowed to return to the scales.",
+      "status": "pending"
+    },
+    {
+      "id": 56,
+      "question": "How much time does a lifter have to start their attempt after being called?",
+      "options": [
+        "1minute",
+        "1minute",
+        "1 minute",
+        "1minute"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Order of Competition",
+        "subsection": "Responsibilities of the Officials",
+        "ruleNumber": "d",
+        "pageNumber": 31
+      },
+      "explanation": "The lifter is allowed one minute in which to start his attempt after the Speaker calls the lifter to the bar.",
+      "status": "pending"
+    },
+    {
+      "id": 57,
+      "question": "How much time does a lifter have to submit their next attempt after completing a lift?",
+      "options": [
+        "1minute",
+        "1minute",
+        "1 minute",
+        "2minute"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Order of Competition",
+        "subsection": "The Round System",
+        "ruleNumber": "j",
+        "pageNumber": 29
+      },
+      "explanation": "A lifter must submit his second and third attempts within one minute of completing his preceding attempt.",
+      "status": "pending"
+    },
+    {
+      "id": 58,
+      "question": "What is the minimum weight increase between attempts?",
+      "options": [
+        "0.9kg",
+        "1.3kg",
+        "1.8kg",
+        "2.5kg"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Miscellaneous Rules",
+        "subsection": "",
+        "ruleNumber": "4",
+        "pageNumber": 32
+      },
+      "explanation": "The progression must be at least 2.5kg between all attempts, unless attempts are made on records.",
+      "status": "pending"
+    },
+    {
+      "id": 59,
+      "question": "What is the minimum increase required to set a new record?",
+      "options": [
+        "0.3kg",
+        "0.4kg",
+        "0.5kg",
+        "0.6kg"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Miscellaneous Rules",
+        "subsection": "",
+        "ruleNumber": "4.a",
+        "pageNumber": 32
+      },
+      "explanation": "In a record attempt the weight of the barbell must be at least 0.5kg in excess of the current record.",
+      "status": "pending"
+    },
+    {
+      "id": 60,
+      "question": "How many changes are permitted on the third attempt deadlift?",
+      "options": [
+        "Unlimited",
+        "None",
+        "Two",
+        "One"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Order of Competition",
+        "subsection": "The Round System",
+        "ruleNumber": "l",
+        "pageNumber": 30
+      },
+      "explanation": "In the third round of the deadlift, two changes are permitted.",
+      "status": "pending"
+    },
+    {
+      "id": 61,
+      "question": "Can second and third attempt weights be changed after submission?",
+      "options": [
+        "No, cannot be changed",
+        "Only with referee approval",
+        "Only second attempt",
+        "Yes, anytime"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Order of Competition",
+        "subsection": "The Round System",
+        "ruleNumber": "k",
+        "pageNumber": 30
+      },
+      "explanation": "Weights submitted for second round attempts cannot be changed. Similarly, third round attempts on the squat and bench press cannot be changed.",
+      "status": "pending"
+    },
+    {
+      "id": 62,
+      "question": "What happens if a lifter fails three attempts on any lift?",
+      "options": [
+        "Gets fourth attempt",
+        "Can continue normally",
+        "Eliminated from overall competition",
+        "Automatically disqualified"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Miscellaneous Rules",
+        "subsection": "",
+        "ruleNumber": "6",
+        "pageNumber": 33
+      },
+      "explanation": "Three unsuccessful attempts in any lift will automatically eliminate the lifter from the overall competition. He may still compete for awards on individual lifts.",
+      "status": "pending"
+    },
+    {
+      "id": 63,
+      "question": "What is the age range for Sub-Junior category?",
+      "options": [
+        "14-17 years",
+        "14-18 years",
+        "15-18 years",
+        "16-18 years"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Age Categories",
+        "subsection": "",
+        "ruleNumber": "",
+        "pageNumber": 5
+      },
+      "explanation": "Sub-Junior: from the day he reaches 14 years and throughout the full calendar year in which he reaches 18 years.",
+      "status": "pending"
+    },
+    {
+      "id": 64,
+      "question": "What is the age range for Junior category?",
+      "options": [
+        "18-22 years",
+        "18-23 years",
+        "19-23 years",
+        "19-24 years"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Age Categories",
+        "subsection": "",
+        "ruleNumber": "",
+        "pageNumber": 5
+      },
+      "explanation": "Junior: from 1 January in the calendar year he reaches 19 years and throughout the full calendar year in which he reaches 23 years.",
+      "status": "pending"
+    },
+    {
+      "id": 65,
+      "question": "At what age does the Open category begin?",
+      "options": [
+        "13years",
+        "16years",
+        "19 years",
+        "23years"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Age Categories",
+        "subsection": "",
+        "ruleNumber": "",
+        "pageNumber": 5
+      },
+      "explanation": "Open: from 1 January in the calendar year he reaches 19 years and upwards.",
+      "status": "pending"
+    },
+    {
+      "id": 66,
+      "question": "What is the age range for Master I category?",
+      "options": [
+        "35-44 years",
+        "40-49 years",
+        "40-54 years",
+        "45-54 years"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Age Categories",
+        "subsection": "",
+        "ruleNumber": "",
+        "pageNumber": 5
+      },
+      "explanation": "Master I: from 1 January in the calendar year he reaches 40 years and throughout the full calendar year in which he reaches 49 years.",
+      "status": "pending"
+    },
+    {
+      "id": 67,
+      "question": "At what age does Master IV category begin?",
+      "options": [
+        "70 years",
+        "94years",
+        "104years",
+        "114years"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Age Categories",
+        "subsection": "",
+        "ruleNumber": "",
+        "pageNumber": 5
+      },
+      "explanation": "Master IV: from 1 January in the calendar year he reaches 70 years and upwards.",
+      "status": "pending"
+    },
+    {
+      "id": 68,
+      "question": "What is the minimum platform size according to IPF rules?",
+      "options": [
+        "2.5m x 2.5m",
+        "3.2m",
+        "3.6m",
+        "3.9m"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Platform",
+        "ruleNumber": "",
+        "pageNumber": 7
+      },
+      "explanation": "All lifts shall be carried out on a platform measuring between 2.5m x 2.5m minimum and 4.0m x 4.0m maximum.",
+      "status": "pending"
+    },
+    {
+      "id": 69,
+      "question": "What is the maximum platform height from the floor?",
+      "options": [
+        "8cm",
+        "10cm",
+        "12cm",
+        "14cm"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Platform",
+        "ruleNumber": "",
+        "pageNumber": 7
+      },
+      "explanation": "It must not exceed 10cm in height from the surrounding stage or floor.",
+      "status": "pending"
+    },
+    {
+      "id": 70,
+      "question": "Is rubber matting allowed on the platform surface?",
+      "options": [
+        "Yes, always",
+        "No, not permitted",
+        "Only for deadlift",
+        "Yes, if approved"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Platform",
+        "ruleNumber": "",
+        "pageNumber": 7
+      },
+      "explanation": "The surface of the platform must be covered with a material of non-slip smooth carpet. Rubber matting or similar sheeting materials are not permitted.",
+      "status": "pending"
+    },
+    {
+      "id": 71,
+      "question": "What is the total overall length limit for a powerlifting bar?",
+      "options": [
+        "2.2m",
+        "3.0m",
+        "3.3m",
+        "3.5m"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "a.1",
+        "pageNumber": 8
+      },
+      "explanation": "Total overall length not to exceed 2.2m.",
+      "status": "pending"
+    },
+    {
+      "id": 72,
+      "question": "What is the distance between collar faces on the bar?",
+      "options": [
+        "1.21-1.22m",
+        "1.31-1.32m",
+        "1.41-1.42m",
+        "1.51-1.52m"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "a.2",
+        "pageNumber": 8
+      },
+      "explanation": "Distance between the collar faces is not to exceed 1.32m or be less than 1.31m.",
+      "status": "pending"
+    },
+    {
+      "id": 73,
+      "question": "What is the sleeve diameter range?",
+      "options": [
+        "45-47mm",
+        "48-50mm",
+        "50-52mm",
+        "52-54mm"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "a.5",
+        "pageNumber": 8
+      },
+      "explanation": "Diameter of the sleeve not to exceed 52mm or be less than 50mm.",
+      "status": "pending"
+    },
+    {
+      "id": 74,
+      "question": "What is the maximum diameter of the largest disc?",
+      "options": [
+        "19cm",
+        "26cm",
+        "32cm",
+        "45cm"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "b.9",
+        "pageNumber": 9
+      },
+      "explanation": "The diameter of the largest discs shall not be more than 45cm.",
+      "status": "pending"
+    },
+    {
+      "id": 75,
+      "question": "How must the heaviest discs be loaded on the bar?",
+      "options": [
+        "Face in",
+        "Face out",
+        "Alternating",
+        "Any direction"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "b.8",
+        "pageNumber": 9
+      },
+      "explanation": "The first and heaviest discs loaded on the bar must be loaded face in; with the rest of the discs loaded face out.",
+      "status": "pending"
+    },
+    {
+      "id": 76,
+      "question": "How many Jury members are there at World Championships?",
+      "options": [
+        "3 or 5",
+        "3",
+        "4",
+        "4"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Jury and Technical Committee",
+        "subsection": "Jury",
+        "ruleNumber": "2",
+        "pageNumber": 37
+      },
+      "explanation": "The Jury shall consist of three or five Category 1 referees.",
+      "status": "pending"
+    },
+    {
+      "id": 77,
+      "question": "Can the Jury reverse a referee's decision?",
+      "options": [
+        "Never",
+        "Yes, anytime",
+        "Only by unanimous vote for 3 member jury",
+        "Only the Chief Referee can"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Jury and Technical Committee",
+        "subsection": "Jury",
+        "ruleNumber": "9",
+        "pageNumber": 38
+      },
+      "explanation": "Only in extreme circumstances when there has been an obvious or blatant mistake in the refereeing will the Jury by unanimous jury vote with 3 Member Jury may reverse the decision.",
+      "status": "pending"
+    },
+    {
+      "id": 78,
+      "question": "What is the passing score for Category 2 referee written examination?",
+      "options": [
+        "35%",
+        "43%",
+        "62%",
+        "85%"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Referees",
+        "subsection": "Qualifications",
+        "ruleNumber": "19.d",
+        "pageNumber": 36
+      },
+      "explanation": "Must achieve a passing score of 85 percent or more on written examination and 85 percent or more on practical examination.",
+      "status": "pending"
+    },
+    {
+      "id": 79,
+      "question": "What is the passing score for Category 1 referee examination?",
+      "options": [
+        "90%",
+        "117%",
+        "134%",
+        "141%"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Referees",
+        "subsection": "Qualifications",
+        "ruleNumber": "20.f",
+        "pageNumber": 36
+      },
+      "explanation": "The candidate must score at least 90 percent on his total examination.",
+      "status": "pending"
+    },
+    {
+      "id": 80,
+      "question": "How long must someone be a Category 2 referee before upgrading to Category 1?",
+      "options": [
+        "1years",
+        "2years",
+        "3years",
+        "4 years"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Referees",
+        "subsection": "Qualifications",
+        "ruleNumber": "20.a",
+        "pageNumber": 36
+      },
+      "explanation": "Must be a Category 2 referee in good standing for a period of at least 4 years.",
+      "status": "pending"
+    },
+    {
+      "id": 81,
+      "question": "Is the use of oil or grease on the body allowed?",
+      "options": [
+        "Only on hands",
+        "No, strictly forbidden",
+        "Yes, anywhere",
+        "Only on thighs"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "General",
+        "ruleNumber": "a",
+        "pageNumber": 20
+      },
+      "explanation": "The use of oil, grease or other lubricants on the body, or personal equipment is strictly forbidden.",
+      "status": "pending"
+    },
+    {
+      "id": 82,
+      "question": "Which substances can be applied to the body?",
+      "options": [
+        "Any powder",
+        "Oil and chalk",
+        "Only chalk",
+        "Baby powder, resin, talc, magnesium carbonate"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "General",
+        "ruleNumber": "b",
+        "pageNumber": 20
+      },
+      "explanation": "Baby powder, resin, talc or magnesium carbonates are the only substances that may be added to the body and attire, but not to the wraps.",
+      "status": "pending"
+    },
+    {
+      "id": 83,
+      "question": "Is adhesive allowed on the underside of footwear?",
+      "options": [
+        "Only in competition",
+        "No, strictly forbidden",
+        "Yes, for grip",
+        "Only resin"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "General",
+        "ruleNumber": "c",
+        "pageNumber": 20
+      },
+      "explanation": "The use of any form of adhesive on the underside of footwear is strictly forbidden.",
+      "status": "pending"
+    },
+    {
+      "id": 84,
+      "question": "Must suit straps be worn over the shoulders?",
+      "options": [
+        "Only for squat",
+        "No, optional",
+        "Yes, at all times in all lifts",
+        "Only in equipped"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Suits",
+        "ruleNumber": "",
+        "pageNumber": 13
+      },
+      "explanation": "The suit-straps must be worn over the lifter's shoulders at all times in all lifts in all competitions.",
+      "status": "pending"
+    },
+    {
+      "id": 85,
+      "question": "What is the minimum leg length of a lifting suit?",
+      "options": [
+        "1cm",
+        "2cm",
+        "2cm",
+        "3cm"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Suits",
+        "ruleNumber": "b",
+        "pageNumber": 13
+      },
+      "explanation": "There must be legs to the suit, extending a minimum of 3cm from the top of the crotch down the inside of the leg.",
+      "status": "pending"
+    },
+    {
+      "id": 86,
+      "question": "What is the maximum leg length of a supportive lifting suit?",
+      "options": [
+        "9cm",
+        "12cm",
+        "15cm",
+        "19cm"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Suits - Supportive",
+        "ruleNumber": "b",
+        "pageNumber": 13
+      },
+      "explanation": "There must be legs to the supportive suit, extending a minimum of 3cm and a maximum of 15cm.",
+      "status": "pending"
+    },
+    {
+      "id": 87,
+      "question": "What is the maximum leg length of a non-supportive lifting suit?",
+      "options": [
+        "16cm",
+        "20cm",
+        "25cm",
+        "31cm"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Suits - Non-supportive",
+        "ruleNumber": "e",
+        "pageNumber": 14
+      },
+      "explanation": "There must be legs to the non-supportive suit, extending a minimum of 3cm and a maximum of 25cm.",
+      "status": "pending"
+    },
+    {
+      "id": 88,
+      "question": "Where must the t-shirt sleeves terminate?",
+      "options": [
+        "At the shoulder",
+        "Below the deltoid but not at/below elbow",
+        "At the wrist",
+        "At the elbow"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "T-Shirt",
+        "ruleNumber": "b",
+        "pageNumber": 15
+      },
+      "explanation": "Those sleeves must terminate below the lifter's deltoid and must not extend onto or below the lifter's elbow.",
+      "status": "pending"
+    },
+    {
+      "id": 89,
+      "question": "Can knee sleeves touch the socks?",
+      "options": [
+        "No, must not be in contact",
+        "Only in equipped",
+        "Yes, if centered on knee",
+        "Yes, always"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Knee Sleeves",
+        "ruleNumber": "d",
+        "pageNumber": 18
+      },
+      "explanation": "When worn by the lifter in competition, knee sleeves must not be in contact with the lifter's suit (other than long legged) or socks.",
+      "status": "pending"
+    },
+    {
+      "id": 90,
+      "question": "How many layers of medical tape may be worn around the thumbs?",
+      "options": [
+        "Two",
+        "One",
+        "Four",
+        "Three"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Medical Tape",
+        "ruleNumber": "1",
+        "pageNumber": 19
+      },
+      "explanation": "Two layers of medical tape may be worn around the thumbs.",
+      "status": "pending"
+    },
+    {
+      "id": 91,
+      "question": "Are hats allowed on the platform during lifting?",
+      "options": [
+        "No, strictly forbidden",
+        "Only baseball caps",
+        "Only religious head wear",
+        "Yes, any type"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Head Wear",
+        "ruleNumber": "1",
+        "pageNumber": 18
+      },
+      "explanation": "Hats are strictly forbidden to be worn on the platform during lifting.",
+      "status": "pending"
+    },
+    {
+      "id": 92,
+      "question": "Is wearing a Hijab allowed during competition?",
+      "options": [
+        "Requires special permission",
+        "No, not allowed",
+        "Only during warm-up",
+        "Yes, lifters may wear Hijab"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Head Wear",
+        "ruleNumber": "2",
+        "pageNumber": 18
+      },
+      "explanation": "Lifters may wear Hijab (head scarf) while lifting.",
+      "status": "pending"
+    },
+    {
+      "id": 93,
+      "question": "What red card (failure card #1) indicates for squat?",
+      "options": [
+        "Not locking knees",
+        "Double bouncing",
+        "Stepping backward/forward",
+        "Insufficient depth"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Failure Cards",
+        "ruleNumber": "1",
+        "pageNumber": 10
+      },
+      "explanation": "Red card (failure 1) for squat: Failure to bend the knees and lower the body until the top surface of the legs at the hip joint is lower than the top of the knees.",
+      "status": "pending"
+    },
+    {
+      "id": 94,
+      "question": "What blue card (failure card #2) indicates for squat?",
+      "options": [
+        "Double bouncing or downward movement during ascent",
+        "Insufficient depth",
+        "Stepping",
+        "Not following commands"
+      ],
+      "correctAnswerIndex": 0,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Failure Cards",
+        "ruleNumber": "2",
+        "pageNumber": 11
+      },
+      "explanation": "Blue card (failure 2) for squat: Failure to assume an upright position with knees locked, or double bouncing/any downward movement during the ascent.",
+      "status": "pending"
+    },
+    {
+      "id": 95,
+      "question": "What yellow card (failure card #3) indicates for squat?",
+      "options": [
+        "Not locking knees",
+        "Double bouncing",
+        "Stepping or not following commands",
+        "Insufficient depth"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Failure Cards",
+        "ruleNumber": "3",
+        "pageNumber": 12
+      },
+      "explanation": "Yellow card (failure 3) for squat: Stepping backward or forward or moving feet laterally, or failure to observe Chief Referee's signals.",
+      "status": "pending"
+    },
+    {
+      "id": 96,
+      "question": "What is the minimum uprights height range for bench press?",
+      "options": [
+        "65-100cm",
+        "70-105cm",
+        "75-110cm",
+        "85-120cm"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bench",
+        "ruleNumber": "3",
+        "pageNumber": 9
+      },
+      "explanation": "The height of the uprights shall be a minimum of 75cm to a maximum of 110cm measured from the floor to the bar rest position.",
+      "status": "pending"
+    },
+    {
+      "id": 97,
+      "question": "What is the minimum width between bar rests on the bench?",
+      "options": [
+        "0.7m",
+        "0.9m",
+        "1.10m",
+        "1.4m"
+      ],
+      "correctAnswerIndex": 2,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bench",
+        "ruleNumber": "4",
+        "pageNumber": 9
+      },
+      "explanation": "Minimum width between insides of bar rests shall be 1.10m.",
+      "status": "pending"
+    },
+    {
+      "id": 98,
+      "question": "How far must the head of the bench extend beyond the center of uprights?",
+      "options": [
+        "9cm",
+        "13cm",
+        "15cm",
+        "22cm"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bench",
+        "ruleNumber": "5",
+        "pageNumber": 9
+      },
+      "explanation": "The head of the bench shall extend 22cm beyond the center of the uprights with a tolerance of 5cm either way.",
+      "status": "pending"
+    },
+    {
+      "id": 99,
+      "question": "Is rocking feet between ball and heel permitted in squat?",
+      "options": [
+        "Only during walkout",
+        "No, never",
+        "Only after rack command",
+        "Yes, it is permitted"
+      ],
+      "correctAnswerIndex": 3,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Causes for Disqualification of a Squat",
+        "ruleNumber": "4",
+        "pageNumber": 21
+      },
+      "explanation": "Stepping backward or forward or moving the feet laterally causes disqualification. Rocking the feet between the ball and heel is permitted.",
+      "status": "pending"
+    },
+    {
+      "id": 100,
+      "question": "Can foot movement occur after the 'Down' command in deadlift?",
+      "options": [
+        "No, causes failure",
+        "Yes, not cause for failure",
+        "Only one step",
+        "Only backward"
+      ],
+      "correctAnswerIndex": 1,
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Causes for Disqualification of a Deadlift",
+        "ruleNumber": "5",
+        "pageNumber": 26
+      },
+      "explanation": "Foot movement after the command 'Down' will not be cause for failure.",
+      "status": "pending"
+    }
+  ]
+}
