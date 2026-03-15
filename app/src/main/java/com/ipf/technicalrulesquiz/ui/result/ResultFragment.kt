@@ -8,6 +8,7 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.gms.ads.AdRequest
 import com.ipf.technicalrulesquiz.R
 import com.ipf.technicalrulesquiz.databinding.FragmentResultBinding
 import com.ipf.technicalrulesquiz.ui.quiz.QuizViewModel
@@ -71,6 +72,8 @@ class ResultFragment : Fragment() {
         binding.btnHome.setOnClickListener {
             findNavController().navigate(R.id.action_result_to_home)
         }
+
+        binding.adView.loadAd(AdRequest.Builder().build())
     }
 
     override fun onDestroyView() {

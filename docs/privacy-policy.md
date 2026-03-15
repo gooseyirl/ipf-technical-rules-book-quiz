@@ -6,7 +6,7 @@ permalink: /privacy-policy/
 
 # Privacy Policy for IPF Technical Rules Quiz
 
-**Last Updated: March 13, 2026**
+**Last Updated: March 15, 2026**
 
 ## Introduction
 
@@ -49,10 +49,23 @@ The app does NOT request or require any special Android permissions:
 
 ## Third-Party Services
 
-The app does NOT use any third-party services, including:
+### Advertising
+
+This app uses **Google AdMob** to display advertisements. AdMob may collect and use data to serve personalised ads, including:
+
+- **Advertising ID**: The Android Advertising ID (AAID) may be used to serve relevant ads
+- **Device information**: General device and network information used for ad serving
+
+AdMob's data collection is governed by Google's Privacy Policy: [https://policies.google.com/privacy](https://policies.google.com/privacy)
+
+You can opt out of personalised ads at any time through your device settings:
+**Settings → Google → Ads → Opt out of Ads Personalisation**
+
+### Other Services
+
+The app does NOT use any other third-party services, including:
 
 - No analytics services (e.g., Google Analytics, Firebase Analytics)
-- No advertising networks
 - No crash reporting services
 - No social media integrations
 - No cloud services
