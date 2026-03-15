@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.ipf.technicalrulesquiz.BuildConfig
 import com.ipf.technicalrulesquiz.R
 import com.ipf.technicalrulesquiz.billing.BillingManager
@@ -47,7 +48,13 @@ class QuizFragment : Fragment() {
         setupObservers()
         setupListeners()
 
-        if (!BuildConfig.SHOW_ADS || BillingManager.isAdsRemoved(requireContext())) {
+        if (BuildConfig.SHOW_ADS && !BillingManager.isAdsRemoved(requireContext())) {
+            MobileAds.initialize(requireContext()) {
+                if (_binding != null) {
+                    binding.adView.loadAd(AdRequest.Builder().build())
+                }
+            }
+        } else {
             binding.adView.visibility = View.GONE
         }
     }
@@ -102,11 +109,19 @@ class QuizFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         if (BuildConfig.SHOW_ADS && !BillingManager.isAdsRemoved(requireContext())) {
-            binding.adView.loadAd(AdRequest.Builder().build())
+            binding.adView.resume()
         }
     }
 
+    override fun onPause() {
+        if (BuildConfig.SHOW_ADS && !BillingManager.isAdsRemoved(requireContext())) {
+            binding.adView.pause()
+        }
+        super.onPause()
+    }
+
     override fun onDestroyView() {
+        binding.adView.destroy()
         super.onDestroyView()
         _binding = null
     }
