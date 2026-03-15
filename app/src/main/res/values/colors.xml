@@ -72,5 +72,5 @@
     <color name="md_theme_dark_outline">#A08C89</color>
 
     <!-- App Icon Background -->
-    <color name="ic_launcher_background">#00000000</color>
+    <color name="ic_launcher_background">#FFFFFF</color>
 </resources>
