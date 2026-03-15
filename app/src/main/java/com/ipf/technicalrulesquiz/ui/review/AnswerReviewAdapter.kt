@@ -10,7 +10,8 @@ import com.ipf.technicalrulesquiz.data.model.AnsweredQuestion
 import com.ipf.technicalrulesquiz.databinding.ItemAnswerReviewBinding
 
 class AnswerReviewAdapter(
-    private val answeredQuestions: List<AnsweredQuestion>
+    private val answeredQuestions: List<AnsweredQuestion>,
+    private val onPageClick: (pageNumber: Int) -> Unit
 ) : RecyclerView.Adapter<AnswerReviewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -19,7 +20,7 @@ class AnswerReviewAdapter(
             parent,
             false
         )
-        return ViewHolder(binding)
+        return ViewHolder(binding, onPageClick)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -29,7 +30,8 @@ class AnswerReviewAdapter(
     override fun getItemCount(): Int = answeredQuestions.size
 
     class ViewHolder(
-        private val binding: ItemAnswerReviewBinding
+        private val binding: ItemAnswerReviewBinding,
+        private val onPageClick: (pageNumber: Int) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(answeredQuestion: AnsweredQuestion, questionNumber: Int) {
@@ -69,7 +71,17 @@ class AnswerReviewAdapter(
                 binding.correctAnswer.visibility = View.VISIBLE
             }
 
+            val pageNumber = question.ruleReference.pageNumber
             binding.ruleReference.text = question.ruleReference.getFullReference()
+            if (pageNumber != null) {
+                binding.ruleReference.setTextColor(
+                    com.google.android.material.color.MaterialColors.getColor(
+                        binding.root,
+                        com.google.android.material.R.attr.colorPrimary
+                    )
+                )
+                binding.ruleReference.setOnClickListener { onPageClick(pageNumber) }
+            }
 
             if (question.explanation != null) {
                 binding.explanation.text = question.explanation

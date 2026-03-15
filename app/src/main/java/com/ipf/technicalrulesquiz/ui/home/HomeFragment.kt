@@ -1,5 +1,7 @@
 package com.ipf.technicalrulesquiz.ui.home
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -34,6 +36,11 @@ class HomeFragment : Fragment() {
         binding.btnQuiz10.setOnClickListener { startQuiz(10) }
         binding.btnQuiz25.setOnClickListener { startQuiz(25) }
         binding.btnQuiz50.setOnClickListener { startQuiz(50) }
+
+        binding.versionInfo.setOnClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.rules_book_url)))
+            startActivity(intent)
+        }
 
         setupRemoveAdsButton()
     }

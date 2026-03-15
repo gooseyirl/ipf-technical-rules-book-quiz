@@ -64,6 +64,25 @@
         android:id="@+id/reviewFragment"
         android:name="com.ipf.technicalrulesquiz.ui.review.ReviewFragment"
         android:label="@string/review_answers"
-        tools:layout="@layout/fragment_review" />
+        tools:layout="@layout/fragment_review">
+        <action
+            android:id="@+id/action_review_to_pdf"
+            app:destination="@id/pdfViewerFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pdfViewerFragment"
+        android:name="com.ipf.technicalrulesquiz.ui.pdf.PdfViewerFragment"
+        android:label="@string/ipf_rulebook"
+        tools:layout="@layout/fragment_pdf_viewer">
+        <argument
+            android:name="pageNumber"
+            app:argType="integer"
+            android:defaultValue="1" />
+    </fragment>
 
 </navigation>

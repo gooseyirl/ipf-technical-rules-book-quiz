@@ -7,8 +7,11 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import androidx.core.os.bundleOf
 import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
 import com.ipf.technicalrulesquiz.BuildConfig
+import com.ipf.technicalrulesquiz.R
 import com.ipf.technicalrulesquiz.billing.BillingManager
 import com.ipf.technicalrulesquiz.databinding.FragmentReviewBinding
 import com.ipf.technicalrulesquiz.ui.quiz.QuizViewModel
@@ -33,7 +36,12 @@ class ReviewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val result = viewModel.getQuizResult()
-        val adapter = AnswerReviewAdapter(result.answeredQuestions)
+        val adapter = AnswerReviewAdapter(result.answeredQuestions) { pageNumber ->
+            findNavController().navigate(
+                R.id.action_review_to_pdf,
+                bundleOf("pageNumber" to pageNumber)
+            )
+        }
         binding.answersRecyclerView.adapter = adapter
 
         binding.toolbar.setNavigationOnClickListener {
@@ -41,13 +49,32 @@ class ReviewFragment : Fragment() {
         }
 
         if (BuildConfig.SHOW_ADS && !BillingManager.isAdsRemoved(requireContext())) {
-            binding.adView.loadAd(AdRequest.Builder().build())
+            MobileAds.initialize(requireContext()) {
+                if (_binding != null) {
+                    binding.adView.loadAd(AdRequest.Builder().build())
+                }
+            }
         } else {
             binding.adView.visibility = View.GONE
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (BuildConfig.SHOW_ADS && !BillingManager.isAdsRemoved(requireContext())) {
+            binding.adView.resume()
+        }
+    }
+
+    override fun onPause() {
+        if (BuildConfig.SHOW_ADS && !BillingManager.isAdsRemoved(requireContext())) {
+            binding.adView.pause()
+        }
+        super.onPause()
+    }
+
     override fun onDestroyView() {
+        binding.adView.destroy()
         super.onDestroyView()
         _binding = null
     }

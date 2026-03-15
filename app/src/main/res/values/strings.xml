@@ -12,6 +12,7 @@
     <string name="quiz_50_questions">50 Questions</string>
     <string name="choose_quiz_length">Choose Quiz Length</string>
     <string name="rules_version">Based on IPF Technical Rules (March 2026)</string>
+    <string name="rules_book_url">https://www.powerlifting.sport/fileadmin/ipf/data/rules/technical-rules/english/2026_IPF_Technical_Rulebook__effective_01_March_2026__v3.pdf</string>
 
     <!-- Quiz Screen -->
     <string name="question_counter">Question %1$d of %2$d</string>
@@ -41,6 +42,12 @@
     <!-- Remove Ads -->
     <string name="remove_ads">Go ad-free</string>
     <string name="ads_removed">Ads Removed</string>
+
+    <!-- PDF Viewer -->
+    <string name="ipf_rulebook">IPF Technical Rulebook</string>
+    <string name="downloading_rulebook">Downloading rulebook…</string>
+    <string name="error_loading_pdf">Could not load the rulebook. Please check your internet connection and try again.</string>
+    <string name="page_indicator">Page %1$d of %2$d</string>
 
     <!-- General -->
     <string name="loading">Loading…</string>
