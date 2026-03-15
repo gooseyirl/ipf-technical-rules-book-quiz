@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
+import com.ipf.technicalrulesquiz.BuildConfig
 import com.ipf.technicalrulesquiz.billing.BillingManager
 import com.ipf.technicalrulesquiz.databinding.FragmentReviewBinding
 import com.ipf.technicalrulesquiz.ui.quiz.QuizViewModel
