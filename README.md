@@ -1,4 +1,4 @@
-# IPF Technical Rules Quiz
+# Powerlifting Rules Quiz
 
 > **Disclaimer:** This is an unofficial, independent app. It is not affiliated with, endorsed by, or associated with the International Powerlifting Federation (IPF).
 

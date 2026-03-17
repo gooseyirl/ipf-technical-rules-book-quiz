@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "IPF Technical Rules Quiz"
+rootProject.name = "Powerlifting Rules Quiz"
 include ':app'
