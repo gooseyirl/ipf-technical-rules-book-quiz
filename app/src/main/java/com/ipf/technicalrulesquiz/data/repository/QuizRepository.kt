@@ -2,7 +2,7 @@ package com.ipf.technicalrulesquiz.data.repository
 
 import android.content.Context
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.google.gson.annotations.SerializedName
 import com.ipf.technicalrulesquiz.data.model.QuizQuestion
 import java.io.IOException
 
@@ -20,9 +20,10 @@ class QuizRepository(private val context: Context) {
             val jsonString = context.assets.open("questions.json").bufferedReader().use { it.readText() }
             val gson = Gson()
             val questionData = gson.fromJson(jsonString, QuestionData::class.java)
-            cachedQuestions = questionData.questions
-            questionData.questions
-        } catch (e: IOException) {
+            val questions = questionData?.questions ?: emptyList()
+            cachedQuestions = questions
+            questions
+        } catch (e: Exception) {
             e.printStackTrace()
             emptyList()
         }
@@ -84,8 +85,8 @@ class QuizRepository(private val context: Context) {
      * Data class to match the JSON structure
      */
     private data class QuestionData(
-        val version: String,
-        val lastUpdated: String,
-        val questions: List<QuizQuestion>
+        @SerializedName("version") val version: String,
+        @SerializedName("lastUpdated") val lastUpdated: String,
+        @SerializedName("questions") val questions: List<QuizQuestion>
     )
 }
