@@ -1,5 +1,7 @@
 package com.ipf.technicalrulesquiz.ui.quiz
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,9 +12,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ipf.technicalrulesquiz.BuildConfig
 import com.ipf.technicalrulesquiz.R
 import com.ipf.technicalrulesquiz.billing.BillingManager
+import com.ipf.technicalrulesquiz.data.model.QuizQuestion
 import com.ipf.technicalrulesquiz.databinding.FragmentQuizBinding
 
 class QuizFragment : Fragment() {
@@ -21,6 +25,7 @@ class QuizFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: QuizViewModel by activityViewModels()
+    private var currentQuestion: QuizQuestion? = null
 
     private val radioButtons: List<RadioButton> by lazy {
         listOf(
@@ -61,6 +66,7 @@ class QuizFragment : Fragment() {
 
     private fun setupObservers() {
         viewModel.currentQuestion.observe(viewLifecycleOwner) { question ->
+            currentQuestion = question
             binding.questionId.text = "#${question.id}"
             binding.questionText.text = question.question
 
@@ -105,6 +111,29 @@ class QuizFragment : Fragment() {
         binding.btnNext.setOnClickListener {
             viewModel.submitAnswer()
         }
+
+        binding.reportQuestion.setOnClickListener {
+            currentQuestion?.let { showReportDialog(it) }
+        }
+    }
+
+    private fun showReportDialog(question: QuizQuestion) {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.report_question_dialog_title)
+            .setMessage(R.string.report_question_dialog_message)
+            .setNegativeButton(android.R.string.cancel, null)
+            .setPositiveButton(R.string.report_question_open_email) { _, _ ->
+                val intent = Intent(Intent.ACTION_SENDTO).apply {
+                    data = Uri.parse("mailto:")
+                    putExtra(Intent.EXTRA_EMAIL, arrayOf(getString(R.string.developer_email)))
+                    putExtra(Intent.EXTRA_SUBJECT, getString(R.string.report_email_subject, question.id))
+                    putExtra(Intent.EXTRA_TEXT, getString(R.string.report_email_body, question.id, question.question))
+                }
+                if (intent.resolveActivity(requireActivity().packageManager) != null) {
+                    startActivity(intent)
+                }
+            }
+            .show()
     }
 
     override fun onResume() {

@@ -1,10 +1,13 @@
 package com.ipf.technicalrulesquiz.ui.review
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.ipf.technicalrulesquiz.R
 import com.ipf.technicalrulesquiz.data.model.AnsweredQuestion
 import com.ipf.technicalrulesquiz.databinding.ItemAnswerReviewBinding
@@ -89,6 +92,25 @@ class AnswerReviewAdapter(
                 binding.explanation.visibility = View.VISIBLE
             } else {
                 binding.explanation.visibility = View.GONE
+            }
+
+            binding.reportQuestion.setOnClickListener {
+                MaterialAlertDialogBuilder(context)
+                    .setTitle(R.string.report_question_dialog_title)
+                    .setMessage(R.string.report_question_dialog_message)
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setPositiveButton(R.string.report_question_open_email) { _, _ ->
+                        val intent = Intent(Intent.ACTION_SENDTO).apply {
+                            data = Uri.parse("mailto:")
+                            putExtra(Intent.EXTRA_EMAIL, arrayOf(context.getString(R.string.developer_email)))
+                            putExtra(Intent.EXTRA_SUBJECT, context.getString(R.string.report_email_subject, question.id))
+                            putExtra(Intent.EXTRA_TEXT, context.getString(R.string.report_email_body, question.id, question.question))
+                        }
+                        if (intent.resolveActivity(context.packageManager) != null) {
+                            context.startActivity(intent)
+                        }
+                    }
+                    .show()
             }
         }
     }

@@ -49,6 +49,15 @@
     <string name="error_loading_pdf">Could not load the rulebook. Please check your internet connection and try again.</string>
     <string name="page_indicator">Page %1$d of %2$d</string>
 
+    <!-- Report Question -->
+    <string name="report_question">Report question</string>
+    <string name="report_question_dialog_title">Report this question?</string>
+    <string name="report_question_dialog_message">This will open your email app so you can send a report to the developer. You can describe the issue before sending.</string>
+    <string name="report_question_open_email">Open Email</string>
+    <string name="developer_email">gooseyirl@gmail.com</string>
+    <string name="report_email_subject">[IPF Quiz] Report Question #%1$d</string>
+    <string name="report_email_body">Question ID: #%1$d\n\nQuestion: %2$s\n\n---\nPlease describe the issue:\n\n</string>
+
     <!-- General -->
     <string name="loading">Loading…</string>
     <string name="error_loading_questions">Error loading questions. Please try again.</string>

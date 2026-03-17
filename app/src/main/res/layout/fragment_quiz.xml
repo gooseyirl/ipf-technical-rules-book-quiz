@@ -64,6 +64,19 @@
 
         </com.google.android.material.card.MaterialCardView>
 
+        <TextView
+            android:id="@+id/report_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/report_question"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="#9E9E9E"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/question_card" />
+
         <RadioGroup
             android:id="@+id/options_group"
             android:layout_width="0dp"
@@ -71,7 +84,7 @@
             android:layout_marginTop="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/question_card">
+            app:layout_constraintTop_toBottomOf="@id/report_question">
 
             <com.google.android.material.radiobutton.MaterialRadioButton
                 android:id="@+id/option_1"
