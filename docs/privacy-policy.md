@@ -6,7 +6,7 @@ permalink: /privacy-policy/
 
 # Privacy Policy for IPF Technical Rules Quiz
 
-**Last Updated: March 15, 2026**
+**Last Updated: March 17, 2026**
 
 ## Introduction
 
@@ -20,32 +20,48 @@ IPF Technical Rules Quiz is designed with privacy in mind. The app:
 
 - Does NOT collect any personal information
 - Does NOT require user accounts or registration
-- Does NOT track user behavior
+- Does NOT track user behaviour
 - Does NOT use analytics services
-- Does NOT transmit any data over the internet
-- Does NOT require internet connectivity to function
+- Does NOT store any data on external servers
+- Does NOT collect or use health or fitness data of any kind
+
+### Health and Fitness Data
+
+This app is an educational quiz about powerlifting rules. It does **not** collect, access, store, or share any health or fitness data. No information about your physical activity, body measurements, heart rate, or any other health-related data is accessed or used by this app.
 
 ### Local Data Storage
 
-The app operates entirely offline and stores data only on your device:
+The app stores data only on your device:
 
 - **Quiz Progress**: Your current quiz session is stored temporarily in memory
 - **No Persistence**: Quiz results and answers are not saved permanently
-- **No External Storage**: No data is written to external storage or shared storage
+- **Rulebook Cache**: The IPF Technical Rulebook PDF is downloaded once and cached locally on your device to avoid repeated downloads. This file is stored in the app's private cache directory and is not shared.
 
-All data is cleared when you exit the app or start a new quiz.
+All session data is cleared when you exit the app or start a new quiz.
+
+## Internet Access
+
+The app uses the internet for the following purposes only:
+
+- **Rulebook Download**: The IPF Technical Rulebook PDF is downloaded from the official IPF website and cached on your device
+- **Advertising**: Google AdMob uses the internet to serve advertisements
+
+No personal data is transmitted as part of the rulebook download.
 
 ## Permissions
 
-The app does NOT request or require any special Android permissions:
+The app requests the following Android permissions:
 
-- NO internet access
-- NO location access
-- NO camera access
-- NO microphone access
-- NO contacts access
-- NO storage access
-- NO device information access
+- **INTERNET**: Required to download the IPF Technical Rulebook PDF and to serve advertisements via Google AdMob
+- **AD_ID (Advertising ID)**: Used by Google AdMob to serve relevant advertisements
+
+The app does NOT request:
+
+- Location access
+- Camera access
+- Microphone access
+- Contacts access
+- Storage access beyond its own private cache
 
 ## Third-Party Services
 
@@ -60,6 +76,10 @@ AdMob's data collection is governed by Google's Privacy Policy: [https://policie
 
 You can opt out of personalised ads at any time through your device settings:
 **Settings → Google → Ads → Opt out of Ads Personalisation**
+
+### In-App Purchases
+
+This app offers a one-time in-app purchase to remove advertisements, processed through **Google Play Billing**. Purchase transactions are handled entirely by Google. We do not collect or store any payment information. Google's Privacy Policy applies: [https://policies.google.com/privacy](https://policies.google.com/privacy)
 
 ### Other Services
 
@@ -76,7 +96,7 @@ Our app does not collect any information from anyone, including children under t
 
 ## Data Security
 
-Since we do not collect, store, or transmit any personal data:
+We do not collect, store, or transmit any personal data:
 
 - There is no user data at risk
 - There are no servers storing your information
@@ -89,7 +109,7 @@ We may update our Privacy Policy from time to time. We will notify users of any 
 
 ## Your Rights
 
-Since we do not collect any data, there is:
+Since we do not collect any personal data, there is:
 
 - No data to access
 - No data to delete
@@ -110,8 +130,6 @@ This app complies with:
 - Children's Online Privacy Protection Act (COPPA)
 - Google Play Store privacy requirements
 
-Since no data is collected, transmitted, or stored, the app adheres to the strictest privacy standards by design.
-
 ---
 
-**Summary**: IPF Technical Rules Quiz is a privacy-first application that collects absolutely no user data, requires no permissions, and operates entirely offline on your device. Your quiz activity is completely private.
+**Summary**: IPF Technical Rules Quiz collects no personal data. It uses the internet solely to download the IPF rulebook PDF and to serve ads via Google AdMob. It does not collect or use any health or fitness data.
