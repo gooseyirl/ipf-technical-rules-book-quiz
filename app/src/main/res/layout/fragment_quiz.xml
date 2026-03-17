@@ -33,6 +33,17 @@
             app:layout_constraintTop_toBottomOf="@id/progress_indicator"
             tools:text="Question 1 of 10" />
 
+        <TextView
+            android:id="@+id/question_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+            android:textColor="#9E9E9E"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress_indicator"
+            tools:text="#42" />
+
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/question_card"
             android:layout_width="0dp"

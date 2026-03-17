@@ -61,6 +61,7 @@ class QuizFragment : Fragment() {
 
     private fun setupObservers() {
         viewModel.currentQuestion.observe(viewLifecycleOwner) { question ->
+            binding.questionId.text = "#${question.id}"
             binding.questionText.text = question.question
 
             question.options.forEachIndexed { index, option ->

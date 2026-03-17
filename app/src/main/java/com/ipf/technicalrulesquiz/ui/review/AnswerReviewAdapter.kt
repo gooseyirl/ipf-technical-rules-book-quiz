@@ -42,6 +42,7 @@ class AnswerReviewAdapter(
                 R.string.question_number_format,
                 questionNumber
             )
+            binding.questionId.text = "#${question.id}"
 
             binding.questionText.text = question.question
 
