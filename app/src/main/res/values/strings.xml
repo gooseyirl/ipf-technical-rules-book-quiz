@@ -53,7 +53,7 @@
     <string name="suggest_question">Suggest a question</string>
     <string name="suggest_question_dialog_title">Suggest a question?</string>
     <string name="suggest_question_dialog_message">This will open your email app with a template for submitting a question suggestion to the developer.</string>
-    <string name="suggest_email_subject">[IPF Quiz] Question Suggestion</string>
+    <string name="suggest_email_subject">[Powerlifting Rules Quiz] Question Suggestion</string>
     <string name="suggest_email_body">Question:\n\n\nOption A:\nOption B:\nOption C:\nOption D:\n\nCorrect Answer:\n\nRule Reference (section/page):\n</string>
 
     <!-- Report Question -->
@@ -62,7 +62,7 @@
     <string name="report_question_dialog_message">This will open your email app so you can send a report to the developer. You can describe the issue before sending.</string>
     <string name="report_question_open_email">Open Email</string>
     <string name="developer_email">gooseyirl+plrulesquiz@gmail.com</string>
-    <string name="report_email_subject">[IPF Quiz] Report Question #%1$d</string>
+    <string name="report_email_subject">[Powerlifting Rules Quiz] Report Question #%1$d</string>
     <string name="report_email_body">Question ID: #%1$d\n\nQuestion: %2$s\n\n---\nPlease describe the issue:\n\n</string>
 
     <!-- General -->
