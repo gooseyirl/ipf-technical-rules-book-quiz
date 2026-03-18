@@ -1,14 +1,14 @@
 ---
 layout: page
-title: IPF Technical Rules Quiz
+title: Powerlifting Rules Quiz
 permalink: /
 ---
 
-# IPF Technical Rules Quiz
+# Powerlifting Rules Quiz
 
 Master the IPF Technical Rules Book with this comprehensive quiz application!
 
-IPF Technical Rules Quiz is the perfect study companion for powerlifters, coaches, referees, and anyone involved in International Powerlifting Federation competitions. This app helps you learn and test your knowledge of the official technical rules governing IPF powerlifting meets.
+Powerlifting Rules Quiz is the perfect study companion for powerlifters, coaches, referees, and anyone involved in International Powerlifting Federation competitions. This app helps you learn and test your knowledge of the official technical rules governing IPF powerlifting meets.
 
 ## Key Features
 
@@ -35,7 +35,7 @@ IPF Technical Rules Quiz is the perfect study companion for powerlifters, coache
 
 **Clean, Modern Design**
 - Material Design 3 interface
-- IPF-themed colour scheme
+- Powerlifting-themed colour scheme
 - Easy-to-read text and clear layouts
 - Smooth navigation and intuitive controls
 

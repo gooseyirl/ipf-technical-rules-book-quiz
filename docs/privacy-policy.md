@@ -4,7 +4,7 @@ title: Privacy Policy
 permalink: /privacy-policy/
 ---
 
-# Privacy Policy for IPF Technical Rules Quiz
+# Privacy Policy for Powerlifting Rules Quiz
 
 **Last Updated: March 17, 2026**
 
@@ -14,13 +14,13 @@ This is an unofficial, independent app. It is not affiliated with, endorsed by, 
 
 ## Introduction
 
-This Privacy Policy describes how IPF Technical Rules Quiz ("the App", "we", "our") handles information when you use our mobile application.
+This Privacy Policy describes how Powerlifting Rules Quiz ("the App", "we", "our") handles information when you use our mobile application.
 
 ## Information Collection and Use
 
 ### We DO NOT Collect Any Personal Information
 
-IPF Technical Rules Quiz is designed with privacy in mind. The app:
+Powerlifting Rules Quiz is designed with privacy in mind. The app:
 
 - Does NOT collect any personal information
 - Does NOT require user accounts or registration
@@ -136,4 +136,4 @@ This app complies with:
 
 ---
 
-**Summary**: IPF Technical Rules Quiz collects no personal data. It uses the internet solely to download the IPF rulebook PDF and to serve ads via Google AdMob. It does not collect or use any health or fitness data.
+**Summary**: Powerlifting Rules Quiz collects no personal data. It uses the internet solely to download the IPF rulebook PDF and to serve ads via Google AdMob. It does not collect or use any health or fitness data.
