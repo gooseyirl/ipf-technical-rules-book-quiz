@@ -37,7 +37,7 @@ captures/
 
 # IntelliJ
 *.iml
-.idea/workspace.xml
+.idea/
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/assetWizardSettings.xml
@@ -56,6 +56,7 @@ captures/
 # Keystore files
 *.jks
 *.keystore
+*keystore*
 
 # External native build folder generated in Android Studio 2.2 and later
 .externalNativeBuild
@@ -89,6 +90,11 @@ lint-results_files/
 
 # Android Profiling
 *.hprof
+
+# Screenshots in root
+*.png
+*.jpg
+*.jpeg
 
 # OS-specific files
 .DS_Store
