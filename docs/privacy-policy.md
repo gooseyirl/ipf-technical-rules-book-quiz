@@ -62,9 +62,7 @@ The app requests the following Android permissions:
 
 ### iOS
 
-The app requests the following iOS permission:
-
-- **App Tracking Transparency (ATT)**: You will be asked if you want to allow tracking for personalised ads. You can decline and the app will still show ads (non-personalised). This can be changed at any time in **Settings → Privacy & Security → Tracking**.
+The iOS app does not request any permissions.
 
 The app does NOT request:
 
@@ -79,14 +77,14 @@ The app does NOT request:
 
 This app uses **Google AdMob** to display advertisements. AdMob may collect and use data to serve personalised ads, including:
 
-- **Advertising ID**: The Android Advertising ID (AAID) or Apple's identifier for advertisers (IDFA, only if ATT permission is granted) may be used to serve relevant ads
+- **Advertising ID**: The Android Advertising ID (AAID) may be used on Android to serve relevant ads
 - **Device information**: General device and network information used for ad serving
 
 AdMob's data collection is governed by Google's Privacy Policy: [https://policies.google.com/privacy](https://policies.google.com/privacy)
 
 **Android**: You can opt out of personalised ads through **Settings → Google → Ads → Opt out of Ads Personalisation**.
 
-**iOS**: You can limit ad tracking through **Settings → Privacy & Security → Tracking** or **Settings → Privacy & Security → Apple Advertising**.
+**iOS**: Ads are served without personalisation. No advertising identifier is used.
 
 ### In-App Purchases
 

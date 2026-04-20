@@ -1,6 +1,5 @@
 import SwiftUI
 import GoogleMobileAds
-import AppTrackingTransparency
 
 @main
 struct PowerliftingQuizApp: App {
@@ -8,11 +7,7 @@ struct PowerliftingQuizApp: App {
         WindowGroup {
             ContentView()
                 .onAppear {
-                    // Request ATT before initialising AdMob so the prompt appears
-                    // before any tracking-related SDK activity begins.
-                    ATTrackingManager.requestTrackingAuthorization { _ in
-                        MobileAds.initialize()
-                    }
+                    MobileAds.initialize()
                 }
         }
     }
