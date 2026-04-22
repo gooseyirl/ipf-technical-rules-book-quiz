@@ -72,5 +72,6 @@ targets:
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         TARGETED_DEVICE_FAMILY: "1"
+        NSUserTrackingUsageDescription: "This identifier is used to deliver personalised ads and measure ad performance."
         NSAppTransportSecurity:
           NSAllowsArbitraryLoads: false
