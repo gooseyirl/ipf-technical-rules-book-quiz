@@ -242,6 +242,13 @@
             color: var(--text-muted);
             margin-top: 6px;
         }
+        .feedback-hint {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            text-align: right;
+            opacity: 0.7;
+        }
 
         /* ── Results ────────────────────────────────────────── */
         .results-head { text-align: center; padding: 8px 0 0; }
@@ -434,8 +441,8 @@
                     <p id="fb-body"></p>
                     <p class="feedback-rule" id="fb-rule"></p>
                 </div>
+                <p class="feedback-hint" id="fb-hint"></p>
             </div>
-            <button class="btn btn-primary" id="next-btn" disabled>Next</button>
         </div>
 
     </div>
@@ -529,11 +536,18 @@ function bindEvents() {
     }));
 
     get('start-btn').addEventListener('click', startQuiz);
-    get('next-btn').addEventListener('click', advance);
     get('review-btn').addEventListener('click', showReview);
     get('retake-btn').addEventListener('click', startQuiz);
     get('home-btn').addEventListener('click', () => show('home'));
     get('back-btn').addEventListener('click', () => show('results'));
+
+    document.addEventListener('keydown', e => {
+        const n = parseInt(e.key, 10);
+        if (n >= 1 && n <= 4 && get('quiz').classList.contains('active')) {
+            const opts = document.querySelectorAll('.opt:not(:disabled)');
+            if (opts[n - 1]) opts[n - 1].click();
+        }
+    });
 }
 
 // ================================================================
@@ -576,8 +590,6 @@ function renderQuestion() {
     // Reset
     const fb = get('feedback');
     fb.className = 'feedback';
-    get('next-btn').disabled = true;
-    get('next-btn').textContent = idx + 1 === quiz.length ? 'See Results' : 'Next';
 }
 
 function pick(i) {
@@ -607,7 +619,16 @@ function pick(i) {
     get('fb-rule').textContent = ruleRefText(q.ruleReference);
 
     answered.push({ question: q, userIdx: i, isCorrect: ok });
-    get('next-btn').disabled = false;
+
+    const isLast = idx + 1 >= quiz.length;
+    get('fb-hint').textContent = isLast ? 'Tap anywhere to see results…' : 'Tap anywhere to continue…';
+
+    const goNext = () => {
+        document.removeEventListener('click', goNext);
+        advance();
+    };
+    // Small delay so the tap that selected the answer doesn't immediately advance
+    setTimeout(() => document.addEventListener('click', goNext), 400);
 }
 
 function advance() {
