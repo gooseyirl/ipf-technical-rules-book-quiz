@@ -212,44 +212,6 @@
         }
         .opt:disabled { cursor: default; }
 
-        /* ── Feedback ───────────────────────────────────────── */
-        .feedback {
-            border-radius: 10px;
-            padding: 14px 16px;
-            margin-bottom: 16px;
-            display: none;
-        }
-        .feedback.show { display: block; }
-        .feedback.correct {
-            background: var(--correct-light);
-            border-left: 4px solid var(--correct);
-        }
-        .feedback.incorrect {
-            background: var(--incorrect-light);
-            border-left: 4px solid var(--incorrect);
-        }
-        .feedback-title {
-            font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-        .feedback.correct .feedback-title { color: var(--correct); }
-        .feedback.incorrect .feedback-title { color: var(--incorrect); }
-        .feedback-body { font-size: 0.88rem; color: var(--text); }
-        .feedback-body p + p { margin-top: 4px; }
-        .feedback-rule {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-top: 6px;
-        }
-        .feedback-hint {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 10px;
-            text-align: right;
-            opacity: 0.7;
-        }
-
         /* ── Results ────────────────────────────────────────── */
         .results-head { text-align: center; padding: 8px 0 0; }
         .results-head h2 { font-size: 1.3rem; font-weight: 800; }
@@ -435,14 +397,6 @@
             </div>
             <p class="q-text" id="q-text"></p>
             <div class="options" id="options"></div>
-            <div class="feedback" id="feedback">
-                <div class="feedback-title" id="fb-title"></div>
-                <div class="feedback-body">
-                    <p id="fb-body"></p>
-                    <p class="feedback-rule" id="fb-rule"></p>
-                </div>
-                <p class="feedback-hint" id="fb-hint"></p>
-            </div>
         </div>
 
     </div>
@@ -587,9 +541,6 @@ function renderQuestion() {
         container.appendChild(btn);
     });
 
-    // Reset
-    const fb = get('feedback');
-    fb.className = 'feedback';
 }
 
 function pick(i) {
@@ -599,36 +550,14 @@ function pick(i) {
     const q  = quiz[idx];
     const ok = i === q.correctAnswerIndex;
 
-    // Style options
+    // Briefly highlight the chosen option, then advance
     document.querySelectorAll('.opt').forEach((b, j) => {
         b.disabled = true;
-        if (j === q.correctAnswerIndex) b.classList.add('correct');
-        else if (j === i)               b.classList.add('incorrect');
+        if (j === i) b.classList.add(ok ? 'correct' : 'incorrect');
     });
 
-    // Feedback
-    const fb = get('feedback');
-    fb.className = 'feedback show ' + (ok ? 'correct' : 'incorrect');
-    get('fb-title').textContent = ok ? '✓  Correct' : '✗  Incorrect';
-
-    let body = '';
-    if (!ok) body = 'The correct answer is: ' + q.options[q.correctAnswerIndex] + '.';
-    if (q.explanation) body += (body ? '  ' : '') + q.explanation;
-    get('fb-body').textContent = body;
-
-    get('fb-rule').textContent = ruleRefText(q.ruleReference);
-
     answered.push({ question: q, userIdx: i, isCorrect: ok });
-
-    const isLast = idx + 1 >= quiz.length;
-    get('fb-hint').textContent = isLast ? 'Tap anywhere to see results…' : 'Tap anywhere to continue…';
-
-    const goNext = () => {
-        document.removeEventListener('click', goNext);
-        advance();
-    };
-    // Small delay so the tap that selected the answer doesn't immediately advance
-    setTimeout(() => document.addEventListener('click', goNext), 400);
+    setTimeout(advance, 400);
 }
 
 function advance() {
