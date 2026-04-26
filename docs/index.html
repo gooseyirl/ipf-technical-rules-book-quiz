@@ -327,6 +327,12 @@
             color: var(--text-muted);
             margin-top: 4px;
         }
+        .rule-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.78rem;
+        }
+        .rule-link:hover { text-decoration: underline; }
 
         /* ── Ad slots ───────────────────────────────────────── */
         /* Replace the contents of these divs with your ad code */
@@ -617,7 +623,7 @@ function showReview() {
                 ? `<div class="rev-explanation">${esc(q.explanation)}</div>`
                 : '') +
             (q.ruleReference
-                ? `<div class="rev-rule">${esc(ruleRefText(q.ruleReference))}</div>`
+                ? `<div class="rev-rule">${ruleRefLink(q.ruleReference)}</div>`
                 : '');
 
         list.appendChild(el);
@@ -645,12 +651,21 @@ function esc(str) {
         .replace(/"/g, '&quot;');
 }
 
+const RULEBOOK_URL = 'https://www.powerlifting.sport/fileadmin/ipf/data/rules/technical-rules/english/2026_IPF_Technical_Rulebook__effective_01_March_2026__v3.pdf';
+
 function ruleRefText(ref) {
     if (!ref) return '';
     let s = 'Rule ' + ref.ruleNumber + ' — ' + ref.section;
     if (ref.subsection) s += ' › ' + ref.subsection;
     if (ref.pageNumber)  s += ' (page ' + ref.pageNumber + ')';
     return s;
+}
+
+function ruleRefLink(ref) {
+    if (!ref) return '';
+    const text = esc(ruleRefText(ref));
+    const url  = ref.pageNumber ? RULEBOOK_URL + '#page=' + ref.pageNumber : RULEBOOK_URL;
+    return `<a class="rule-link" href="${url}" target="_blank" rel="noopener">${text} ↗</a>`;
 }
 </script>
 </body>
