@@ -13,8 +13,8 @@ packages:
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    MARKETING_VERSION: "1.4.2"
-    CURRENT_PROJECT_VERSION: "1"
+    MARKETING_VERSION: "1.7.3"
+    CURRENT_PROJECT_VERSION: "2"
     PRODUCT_BUNDLE_IDENTIFIER: com.gooseco.technicalrulesquiz
     INFOPLIST_FILE: PowerliftingQuiz/Resources/Info.plist
     DEVELOPMENT_TEAM: "RG72PZGLF9"
