@@ -258,13 +258,11 @@ body::after{
 }
 .verdict.good{color:var(--white-light)}
 .verdict.bad{color:var(--red-light)}
-.explain p{font-size:.93rem;color:#C9C8C4;margin-bottom:9px}
+/* The rulebook text is the whole teaching moment, so it leads */
 .quote{
-  font-size:.83rem;color:var(--mute);
-  font-style:italic;line-height:1.5;
-  margin-bottom:9px;
-  padding-left:11px;
-  border-left:1px solid var(--line);
+  font-size:.95rem;color:#D6D5D1;
+  font-style:italic;line-height:1.52;
+  margin-bottom:11px;
 }
 .ref{
   display:inline-flex;align-items:center;gap:5px;
@@ -518,7 +516,6 @@ function pick(n) {
   $('explain').innerHTML =
     `<div class="explain">
        <div class="verdict ${ok ? 'good' : 'bad'}">${ok ? 'Good lift' : 'No lift'}</div>
-       <p>${esc(q.explanation || '')}</p>
        ${q.ruleQuote ? `<p class="quote">${esc(q.ruleQuote)}</p>` : ''}
        <a class="ref" href="${RULEBOOK}${ref.pageNumber ? '#page=' + ref.pageNumber : ''}"
           target="_blank" rel="noopener">${esc(refText)} ↗</a>
