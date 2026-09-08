@@ -14,7 +14,6 @@
       ],
       "correctAnswerIndex": 0,
       "difficulty": "easy",
-      "explanation": "The three lifts are always taken in the order squat, bench press, deadlift.",
       "ruleReference": {
         "section": "General Rules of Powerlifting",
         "subsection": "",
@@ -35,7 +34,6 @@
       ],
       "correctAnswerIndex": 1,
       "difficulty": "easy",
-      "explanation": "A white light means a good lift; a red light means a no lift.",
       "ruleReference": {
         "section": "Equipment and Specifications",
         "subsection": "Lights",
@@ -56,7 +54,6 @@
       ],
       "correctAnswerIndex": 0,
       "difficulty": "medium",
-      "explanation": "The hip joint must finish below the top of the knee.",
       "ruleReference": {
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Squat",
@@ -77,7 +74,6 @@
       ],
       "correctAnswerIndex": 2,
       "difficulty": "easy",
-      "explanation": "There must never be fewer than two or more than five spotter/loaders on the platform.",
       "ruleReference": {
         "section": "Powerlifts and Rules of Performance",
         "subsection": "Squat",
@@ -98,7 +94,6 @@
       ],
       "correctAnswerIndex": 2,
       "difficulty": "hard",
-      "explanation": "The third-attempt deadlift weight may be changed twice, either up or down.",
       "ruleReference": {
         "section": "Order of Competition",
         "subsection": "The Round System",
@@ -106,6 +101,106 @@
         "pageNumber": 30
       },
       "ruleQuote": "In the third round of the deadlift, two changes are permitted. The change of the weight may be higher or lower than the lifters previously submitted third attempt.",
+      "status": "validated"
+    },
+    {
+      "id": 6,
+      "question": "How many attempts does each lifter get on each lift?",
+      "options": [
+        "2",
+        "3",
+        "4",
+        "5"
+      ],
+      "correctAnswerIndex": 1,
+      "difficulty": "easy",
+      "ruleReference": {
+        "section": "General Rules of Powerlifting",
+        "subsection": "",
+        "ruleNumber": "1 (e)",
+        "pageNumber": 4
+      },
+      "ruleQuote": "Each competitor is allowed three attempts on each lift.",
+      "status": "validated"
+    },
+    {
+      "id": 7,
+      "question": "What is the maximum width of a lifting belt?",
+      "options": [
+        "8 cm",
+        "10 cm",
+        "12 cm",
+        "14 cm"
+      ],
+      "correctAnswerIndex": 1,
+      "difficulty": "medium",
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Belt — Dimensions",
+        "ruleNumber": "3.6 (1)",
+        "pageNumber": 17
+      },
+      "ruleQuote": "Width of belt maximum 10 cm.",
+      "status": "validated"
+    },
+    {
+      "id": 8,
+      "question": "What must remain in contact with the bench during the bench press?",
+      "options": [
+        "Head, shoulders and buttocks",
+        "Shoulders and buttocks only",
+        "The entire back and the buttocks",
+        "Head and shoulders only"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "medium",
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Bench Press",
+        "ruleNumber": "4.2 (2)",
+        "pageNumber": 22
+      },
+      "ruleQuote": "The lifter must lie on their back with the head, shoulders, and buttocks … in contact with the bench surface.",
+      "status": "validated"
+    },
+    {
+      "id": 9,
+      "question": "What command does the Chief Referee give to start the deadlift?",
+      "options": [
+        "No signal is required",
+        "An upward arm movement and “Start”",
+        "An upward arm movement and “Lift”",
+        "An upward arm movement and “Up”"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "medium",
+      "ruleReference": {
+        "section": "Referees",
+        "subsection": "Signals required for the three lifts",
+        "ruleNumber": "7 (3)",
+        "pageNumber": 36
+      },
+      "ruleQuote": "Signals required for the three lifts are as follows: … DEADLIFT … No signal required",
+      "status": "validated"
+    },
+    {
+      "id": 10,
+      "question": "What is the maximum thickness of a knee sleeve?",
+      "options": [
+        "5 mm",
+        "7 mm",
+        "9 mm",
+        "11 mm"
+      ],
+      "correctAnswerIndex": 1,
+      "difficulty": "hard",
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Knee Sleeves",
+        "ruleNumber": "3.8 (b)",
+        "pageNumber": 17
+      },
+      "ruleQuote": "Knee sleeves shall be of a maximum thickness of 7 mm and a maximum length of 30 cm.",
       "status": "validated"
     }
   ]
