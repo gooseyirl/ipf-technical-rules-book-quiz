@@ -458,8 +458,10 @@ function show(id) {
 }
 
 /* ── Difficulty filters ───────────────────────── */
+// TIERS is ordered easiest first — an uneven split leans this way
 const TIERS = ['easy', 'medium', 'hard'];
 const STORE = 'plq.tiers';
+const MAX_Q = 10;
 let on = new Set(TIERS);
 
 // Restore the visitor's last choice, ignoring anything unusable
@@ -507,14 +509,45 @@ function toggle(tier, tiers) {
 }
 
 function paintCount() {
-  const k = picked().length;
-  $('count').textContent = k === 1 ? '1 question' : k + ' questions';
-  $('go').disabled = !k;
+  const pool = picked().length;
+  const asked = Math.min(MAX_Q, pool);
+  $('count').textContent =
+    pool === 0     ? 'no questions' :
+    pool > asked   ? `${asked} of ${pool}` :
+    asked === 1    ? '1 question' : `${asked} questions`;
+  $('go').disabled = !pool;
 }
 
 /* ── Quiz ─────────────────────────────────────── */
+
+/* Draw up to MAX_Q, split as evenly as the selected tiers allow.
+   Dealing one per tier in turn keeps tiers within one of each other,
+   leaves any remainder on the earliest (easiest) tiers, and skips a
+   tier once it runs dry so a short tier never costs us the full draw. */
+function draw() {
+  const tiers = TIERS.filter(t => on.has(t));
+  const pool = {};
+  tiers.forEach(t => pool[t] = shuffle(bank.filter(q => q.difficulty === t)));
+
+  const target = Math.min(MAX_Q, tiers.reduce((n, t) => n + pool[t].length, 0));
+  const take = Object.fromEntries(tiers.map(t => [t, 0]));
+
+  let placed = 0;
+  while (placed < target) {
+    let dealt = false;
+    for (const t of tiers) {
+      if (placed >= target) break;
+      if (take[t] < pool[t].length) { take[t]++; placed++; dealt = true; }
+    }
+    if (!dealt) break;              // every selected tier exhausted
+  }
+
+  // interleave so difficulties are not served in blocks
+  return shuffle(tiers.flatMap(t => pool[t].slice(0, take[t])));
+}
+
 function start() {
-  quiz = shuffle(picked());
+  quiz = draw();
   if (!quiz.length) return;
   i = 0; results = [];
   $('tot').textContent = quiz.length;
