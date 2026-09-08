@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Powerlifting Rules Quiz
-permalink: /
+permalink: /about/
 ---
 
 # Powerlifting Rules Quiz

@@ -1,671 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPF Technical Rules Quiz</title>
-    <meta name="description" content="Test your knowledge of the IPF Technical Rules Book. Multiple choice questions for powerlifters, coaches and referees.">
-    <style>
-        :root {
-            --primary:        #1565C0;
-            --primary-dark:   #0D47A1;
-            --primary-light:  #E3F2FD;
-            --correct:        #2E7D32;
-            --correct-light:  #E8F5E9;
-            --incorrect:      #C62828;
-            --incorrect-light:#FFEBEE;
-            --surface:        #FFFFFF;
-            --bg:             #F0F4F9;
-            --text:           #1A1A2E;
-            --text-muted:     #6B7280;
-            --border:         #E2E8F0;
-            --radius:         12px;
-            --shadow:         0 1px 4px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.05);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Powerlifting Rules Quiz</title>
+<meta name="description" content="Test your knowledge of the IPF Technical Rulebook. A short multiple-choice quiz for lifters, coaches and referees.">
+<meta name="theme-color" content="#0B0B0D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0B0D;
+  --ink-2:#141417;
+  --ink-3:#1D1D21;
+  --line:#2B2B31;
+  --paper:#F4F3F0;
+  --mute:#8A8A93;
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  /* Referee lights */
+  --white-light:#FFFFFF;
+  --red-light:#E03131;
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            min-height: 100vh;
-            line-height: 1.5;
-        }
+  /* IPF disc colour code — 15kg yellow, 20kg blue, 25kg red */
+  --disc-15:#F2C200;
+  --disc-20:#2B6CD4;
+  --disc-25:#D42D2D;
 
-        /* ── Layout ─────────────────────────────────────────── */
-        .wrap {
-            max-width: 620px;
-            margin: 0 auto;
-            padding: 16px 16px 40px;
-        }
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --fast:.18s;
+  --mid:.26s;
+}
 
-        .screen { display: none; flex-direction: column; gap: 16px; }
-        .screen.active { display: flex; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
-        /* ── Card ───────────────────────────────────────────── */
-        .card {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 24px;
-            box-shadow: var(--shadow);
-        }
+html{-webkit-text-size-adjust:100%}
 
-        /* ── Home ───────────────────────────────────────────── */
-        .home-header {
-            text-align: center;
-            padding: 20px 0 4px;
-        }
-        .home-header h1 {
-            font-size: clamp(1.4rem, 5vw, 1.9rem);
-            font-weight: 800;
-            color: var(--primary);
-            line-height: 1.2;
-        }
-        .home-header p {
-            color: var(--text-muted);
-            margin-top: 6px;
-            font-size: 0.95rem;
-        }
+body{
+  font-family:'IBM Plex Sans',ui-sans-serif,sans-serif;
+  background:var(--ink);
+  color:var(--paper);
+  min-height:100dvh;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
 
-        .section-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-bottom: 10px;
-        }
+/* Grain + vignette for depth */
+body::before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:100;
+  opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+body::after{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:99;
+  background:radial-gradient(120% 90% at 50% 0%,transparent 40%,rgba(0,0,0,.55) 100%);
+}
 
-        .qty-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 20px;
-        }
-        .qty-btn {
-            border: 2px solid var(--border);
-            background: var(--surface);
-            border-radius: 8px;
-            padding: 12px 4px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            color: var(--text);
-            transition: border-color 0.15s, background 0.15s, color 0.15s;
-        }
-        .qty-btn:hover { border-color: var(--primary); }
-        .qty-btn.active {
-            border-color: var(--primary);
-            background: var(--primary-light);
-            color: var(--primary);
-        }
+.wrap{
+  position:relative;z-index:1;
+  max-width:660px;
+  margin:0 auto;
+  padding:clamp(20px,5vw,40px) clamp(18px,5vw,28px) 64px;
+  min-height:100dvh;
+  display:flex;flex-direction:column;
+}
 
-        .home-info {
-            font-size: 0.83rem;
-            color: var(--text-muted);
-            text-align: center;
-            line-height: 1.6;
-        }
-        .home-info strong { color: var(--text); }
+/* ── Screens ─────────────────────────────────────── */
+.screen{display:none;flex:1;flex-direction:column}
+.screen.on{display:flex;animation:screenIn var(--mid) var(--ease) backwards}
+@keyframes screenIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-        /* ── Buttons ────────────────────────────────────────── */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 14px 16px;
-            border: none;
-            border-radius: var(--radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-            transition: background 0.15s, opacity 0.15s;
-            text-decoration: none;
-        }
-        .btn + .btn { margin-top: 10px; }
+/* ── Type ────────────────────────────────────────── */
+.display{
+  font-family:'Anton',Impact,sans-serif;
+  font-weight:400;
+  text-transform:uppercase;
+  letter-spacing:.01em;
+  line-height:.92;
+}
+.eyebrow{
+  font-size:.7rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.18em;
+  color:var(--mute);
+}
 
-        .btn-primary { background: var(--primary); color: #fff; }
-        .btn-primary:hover { background: var(--primary-dark); }
-        .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+/* ── Start ───────────────────────────────────────── */
+.start{flex:1;display:flex;flex-direction:column;justify-content:center;gap:26px;padding:24px 0}
+.start h1{font-size:clamp(3rem,14vw,5.4rem)}
+.start h1 .accent{color:var(--disc-25)}
+.start .lede{color:var(--mute);font-size:1.02rem;max-width:34ch}
 
-        .btn-secondary { background: var(--primary-light); color: var(--primary); }
-        .btn-secondary:hover { background: #BBDEFB; }
+.meta-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 
-        .btn-ghost {
-            background: transparent;
-            color: var(--text-muted);
-            border: 1.5px solid var(--border);
-        }
-        .btn-ghost:hover { background: var(--bg); }
+.chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:.72rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.09em;
+  padding:6px 11px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--mute);
+}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.dot.easy{background:var(--disc-15)}
+.dot.medium{background:var(--disc-20)}
+.dot.hard{background:var(--disc-25)}
 
-        /* ── Progress bar ───────────────────────────────────── */
-        .progress-wrap {
-            height: 6px;
-            background: var(--border);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            background: var(--primary);
-            border-radius: 3px;
-            transition: width 0.35s ease;
-        }
+/* ── Buttons ─────────────────────────────────────── */
+.btn{
+  font-family:'Anton',Impact,sans-serif;
+  text-transform:uppercase;letter-spacing:.06em;
+  font-size:1.15rem;
+  background:var(--paper);color:var(--ink);
+  border:none;border-radius:4px;
+  padding:17px 26px;
+  cursor:pointer;
+  width:100%;
+  transition:transform var(--fast) var(--ease),background var(--fast) var(--ease),opacity var(--fast) var(--ease);
+}
+.btn:hover{background:#fff;transform:translateY(-2px)}
+.btn:active{transform:translateY(0)}
+.btn:disabled{opacity:.35;cursor:default;transform:none}
 
-        /* ── Quiz ───────────────────────────────────────────── */
-        .q-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-        .q-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            color: var(--text-muted);
-        }
-        .q-counter {
-            font-size: 0.78rem;
-            font-weight: 600;
-            color: var(--text-muted);
-        }
+.btn-quiet{
+  background:transparent;color:var(--mute);
+  border:1px solid var(--line);
+  font-family:'IBM Plex Sans',sans-serif;
+  font-size:.85rem;font-weight:600;
+  letter-spacing:.04em;
+  padding:13px 22px;
+}
+.btn-quiet:hover{background:var(--ink-2);color:var(--paper);transform:none}
 
-        .q-text {
-            font-size: 1.05rem;
-            font-weight: 500;
-            line-height: 1.55;
-            margin-bottom: 20px;
-        }
+.hint{
+  font-size:.74rem;color:var(--mute);text-align:center;
+  margin-top:14px;letter-spacing:.02em;
+}
+.key{
+  display:inline-block;
+  border:1px solid var(--line);border-radius:3px;
+  padding:1px 5px;margin:0 1px;
+  font-size:.7rem;color:var(--paper);
+}
 
-        .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+/* ── Progress: plates loaded on a bar ────────────── */
+.bar{display:flex;gap:4px;margin-bottom:30px}
+.plate{
+  flex:1;height:4px;border-radius:2px;
+  background:var(--ink-3);
+  transition:background var(--mid) var(--ease),transform var(--mid) var(--ease);
+  transform-origin:center;
+}
+.plate.hit{background:var(--paper)}
+.plate.miss{background:var(--red-light)}
+.plate.now{background:var(--mute);transform:scaleY(2.2)}
 
-        .opt {
-            width: 100%;
-            text-align: left;
-            padding: 14px 16px;
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            background: var(--surface);
-            font-size: 0.95rem;
-            line-height: 1.4;
-            cursor: pointer;
-            color: var(--text);
-            transition: border-color 0.15s, background 0.15s;
-        }
-        .opt:hover:not(:disabled) {
-            border-color: var(--primary);
-            background: var(--primary-light);
-        }
-        .opt.correct {
-            border-color: var(--correct);
-            background: var(--correct-light);
-            color: var(--correct);
-            font-weight: 600;
-        }
-        .opt.incorrect {
-            border-color: var(--incorrect);
-            background: var(--incorrect-light);
-            color: var(--incorrect);
-        }
-        .opt:disabled { cursor: default; }
+/* ── Question ────────────────────────────────────── */
+.q-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.q-count{font-family:'Anton',sans-serif;font-size:.95rem;letter-spacing:.08em;color:var(--mute)}
+.q-count b{color:var(--paper)}
 
-        /* ── Results ────────────────────────────────────────── */
-        .results-head { text-align: center; padding: 8px 0 0; }
-        .results-head h2 { font-size: 1.3rem; font-weight: 800; }
+.badge{
+  font-size:.66rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;
+  padding:5px 10px;border-radius:3px;
+  color:var(--ink);
+}
+.badge.easy{background:var(--disc-15)}
+.badge.medium{background:var(--disc-20);color:#fff}
+.badge.hard{background:var(--disc-25);color:#fff}
 
-        .score-ring {
-            width: 118px;
-            height: 118px;
-            border-radius: 50%;
-            border: 6px solid var(--primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 8px auto 10px;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-        }
-        .score-ring.pass { border-color: var(--correct); color: var(--correct); }
-        .score-ring.fail { border-color: var(--incorrect); color: var(--incorrect); }
+.q-text{
+  font-size:clamp(1.35rem,4.6vw,1.72rem);
+  font-weight:500;line-height:1.28;
+  letter-spacing:-.015em;
+  margin-bottom:26px;
+}
 
-        .badge {
-            display: inline-block;
-            padding: 3px 18px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.85rem;
-            margin-bottom: 18px;
-        }
-        .badge.pass { background: var(--correct-light); color: var(--correct); }
-        .badge.fail { background: var(--incorrect-light); color: var(--incorrect); }
+.options{display:flex;flex-direction:column;gap:9px}
 
-        .score-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        .score-cell {
-            border-radius: 10px;
-            padding: 16px 12px;
-            text-align: center;
-        }
-        .score-cell .num { font-size: 1.9rem; font-weight: 800; line-height: 1; }
-        .score-cell .lbl { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
-        .score-cell.c { background: var(--correct-light); }
-        .score-cell.c .num { color: var(--correct); }
-        .score-cell.i { background: var(--incorrect-light); }
-        .score-cell.i .num { color: var(--incorrect); }
+.opt{
+  position:relative;
+  display:flex;align-items:flex-start;gap:13px;
+  width:100%;text-align:left;
+  padding:15px 17px;
+  background:var(--ink-2);
+  border:1px solid var(--line);
+  border-radius:5px;
+  color:var(--paper);
+  font-family:inherit;font-size:.97rem;line-height:1.4;
+  cursor:pointer;
+  transition:border-color var(--fast) var(--ease),background var(--fast) var(--ease),transform var(--fast) var(--ease);
+}
+.opt:hover:not(:disabled){border-color:#4A4A54;background:var(--ink-3);transform:translateX(3px)}
+.opt:disabled{cursor:default}
 
-        /* ── Review ─────────────────────────────────────────── */
-        .review-top {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .back-btn {
-            background: none;
-            border: none;
-            color: var(--primary);
-            font-size: 0.9rem;
-            font-weight: 600;
-            cursor: pointer;
-            padding: 4px 0;
-            flex-shrink: 0;
-        }
-        .review-top h2 { font-size: 1rem; font-weight: 700; }
+.opt .num{
+  font-family:'Anton',sans-serif;
+  font-size:.78rem;color:var(--mute);
+  flex:none;width:15px;padding-top:2px;
+  transition:color var(--fast) var(--ease);
+}
 
-        .review-list { display: flex; flex-direction: column; gap: 12px; }
+/* Referee lights: white = good lift, red = no lift */
+.opt.good{
+  background:var(--white-light);border-color:var(--white-light);color:var(--ink);
+  animation:flash var(--mid) var(--ease);
+}
+.opt.good .num{color:var(--ink)}
+.opt.bad{
+  background:var(--red-light);border-color:var(--red-light);color:#fff;
+  animation:flash var(--mid) var(--ease);
+}
+.opt.bad .num{color:#fff}
+/* The answer you should have given — brightest thing on screen */
+.opt.reveal{
+  border-color:var(--white-light);
+  background:var(--ink-3);
+  color:#fff;font-weight:500;
+  box-shadow:0 0 0 1px var(--white-light),0 0 22px rgba(255,255,255,.20);
+  animation:revealPulse .55s var(--ease);
+}
+.opt.reveal .num{color:#fff}
+@keyframes revealPulse{
+  0%{box-shadow:0 0 0 1px var(--white-light),0 0 0 rgba(255,255,255,0)}
+  45%{box-shadow:0 0 0 1px var(--white-light),0 0 28px rgba(255,255,255,.45)}
+  100%{box-shadow:0 0 0 1px var(--white-light),0 0 22px rgba(255,255,255,.20)}
+}
+.opt.dim{opacity:.32}
 
-        .rev-item {
-            background: var(--surface);
-            border-radius: var(--radius);
-            padding: 16px;
-            box-shadow: var(--shadow);
-            border-left: 4px solid var(--border);
-        }
-        .rev-item.correct { border-left-color: var(--correct); }
-        .rev-item.incorrect { border-left-color: var(--incorrect); }
+@keyframes flash{from{transform:scale(.985)}to{transform:none}}
 
-        .rev-q-num {
-            font-size: 0.73rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-        }
-        .rev-q-text {
-            font-size: 0.93rem;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-        .rev-answer {
-            display: inline-block;
-            font-size: 0.84rem;
-            padding: 5px 10px;
-            border-radius: 6px;
-            margin-bottom: 4px;
-        }
-        .rev-answer.user-correct  { background: var(--correct-light);   color: var(--correct);   font-weight: 600; }
-        .rev-answer.user-wrong    { background: var(--incorrect-light); color: var(--incorrect); text-decoration: line-through; }
-        .rev-answer.right-answer  { background: var(--correct-light);   color: var(--correct);   font-weight: 600; }
+/* Staggered option entry */
+.options.enter .opt{animation:optIn var(--mid) var(--ease) backwards}
+.options.enter .opt:nth-child(1){animation-delay:.02s}
+.options.enter .opt:nth-child(2){animation-delay:.06s}
+.options.enter .opt:nth-child(3){animation-delay:.10s}
+.options.enter .opt:nth-child(4){animation-delay:.14s}
+@keyframes optIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
 
-        .rev-explanation {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px solid var(--border);
-        }
-        .rev-rule {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            margin-top: 4px;
-        }
-        .rule-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.78rem;
-        }
-        .rule-link:hover { text-decoration: underline; }
+.q-body.enter .q-text{animation:optIn var(--mid) var(--ease) backwards}
 
-        /* ── Ad slots ───────────────────────────────────────── */
-        /* Replace the contents of these divs with your ad code */
-        .ad-slot { width: 100%; min-height: 0; }
-        .ad-slot:not(:empty) {
-            min-height: 60px;
-            background: #f8f8f8;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* ── Explain ─────────────────────────────────────── */
+.explain{
+  margin-top:20px;
+  border-left:2px solid var(--line);
+  padding:2px 0 2px 15px;
+  animation:optIn var(--mid) var(--ease) backwards;
+}
+.verdict{
+  font-family:'Anton',sans-serif;
+  font-size:1rem;letter-spacing:.09em;
+  margin-bottom:7px;
+}
+.verdict.good{color:var(--white-light)}
+.verdict.bad{color:var(--red-light)}
+.explain p{font-size:.93rem;color:#C9C8C4;margin-bottom:9px}
+.quote{
+  font-size:.83rem;color:var(--mute);
+  font-style:italic;line-height:1.5;
+  margin-bottom:9px;
+  padding-left:11px;
+  border-left:1px solid var(--line);
+}
+.ref{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.74rem;letter-spacing:.03em;
+  color:var(--mute);text-decoration:none;
+  border-bottom:1px solid var(--line);
+  padding-bottom:1px;
+  transition:color var(--fast) var(--ease),border-color var(--fast) var(--ease);
+}
+.ref:hover{color:var(--paper);border-color:var(--mute)}
 
-        /* ── Utility ────────────────────────────────────────── */
-        .text-center { text-align: center; }
-    </style>
+.next-wrap{margin-top:26px}
+
+/* ── Done ────────────────────────────────────────── */
+.done{flex:1;display:flex;flex-direction:column;justify-content:center;gap:22px;padding:20px 0}
+.score{display:flex;align-items:baseline;gap:14px}
+.score .big{font-family:'Anton',sans-serif;font-size:clamp(4.5rem,20vw,7.5rem);line-height:.82}
+.score .of{font-family:'Anton',sans-serif;font-size:1.6rem;color:var(--mute)}
+.verdict-line{font-family:'Anton',sans-serif;font-size:1.5rem;letter-spacing:.05em}
+
+.review{display:flex;flex-direction:column;gap:1px;margin:6px 0 4px}
+.rev{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:13px 0;
+  border-top:1px solid var(--line);
+  font-size:.9rem;
+  animation:optIn var(--mid) var(--ease) backwards;
+}
+.rev:last-child{border-bottom:1px solid var(--line)}
+.mark{
+  font-family:'Anton',sans-serif;font-size:.8rem;
+  flex:none;width:16px;padding-top:2px;
+}
+.mark.good{color:var(--white-light)}
+.mark.bad{color:var(--red-light)}
+.rev-q{color:#C9C8C4;line-height:1.4}
+.rev-a{font-size:.82rem;color:var(--mute);margin-top:3px}
+.rev-a b{color:var(--paper);font-weight:600}
+
+footer{
+  margin-top:34px;padding-top:18px;
+  border-top:1px solid var(--line);
+  font-size:.72rem;color:#5C5C64;line-height:1.6;
+}
+footer a{color:var(--mute)}
+
+/* Keyboard hints are meaningless on touch devices */
+@media (hover:none) and (pointer:coarse){
+  .hint{display:none}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+</style>
 </head>
 <body>
 <div class="wrap">
 
-    <!-- ════════════════════════════════════════════════════════
-         HOME SCREEN
-         ════════════════════════════════════════════════════════ -->
-    <div id="home" class="screen active">
-
-        <!-- AD SLOT: top banner (e.g. Google AdSense responsive unit) -->
-        <div class="ad-slot" id="ad-home-top"></div>
-
-        <div class="home-header">
-            <h1>IPF Technical Rules Quiz</h1>
-            <p>Test your knowledge of the rulebook</p>
-        </div>
-
-        <div class="card">
-            <div class="section-label">Number of questions</div>
-            <div class="qty-grid">
-                <button class="qty-btn" data-qty="5">5</button>
-                <button class="qty-btn active" data-qty="10">10</button>
-                <button class="qty-btn" data-qty="20">20</button>
-                <button class="qty-btn" data-qty="all">All</button>
-            </div>
-            <button class="btn btn-primary" id="start-btn">Start Quiz</button>
-        </div>
-
-        <div class="card home-info">
-            Questions are drawn from the <strong>IPF Technical Rules Book</strong>.<br>
-            A score of <strong>70%</strong> or above is considered a pass.
-        </div>
-
-        <!-- AD SLOT: below info -->
-        <div class="ad-slot" id="ad-home-bottom"></div>
-
+  <!-- ── START ─────────────────────────────────── -->
+  <section id="s-start" class="screen on">
+    <div class="start">
+      <div>
+        <p class="eyebrow" style="margin-bottom:16px">IPF Technical Rulebook 2026</p>
+        <h1 class="display">Powerlifting<br>Rules <span class="accent">Quiz</span></h1>
+      </div>
+      <p class="lede">Multiple choice, straight from the rulebook. Every answer cites the rule it came from.</p>
+      <div class="meta-row" id="meta"></div>
+      <div>
+        <button class="btn" id="go">Start Quiz</button>
+        <p class="hint">Press <span class="key">1</span>–<span class="key">4</span> to answer, <span class="key">Enter</span> to continue</p>
+      </div>
     </div>
+    <footer>
+      Unofficial and independent. Not affiliated with, endorsed by, or associated with the International Powerlifting Federation.
+      <br><a href="privacy-policy/">Privacy policy</a>
+    </footer>
+  </section>
 
-    <!-- ════════════════════════════════════════════════════════
-         QUIZ SCREEN
-         ════════════════════════════════════════════════════════ -->
-    <div id="quiz" class="screen">
-
-        <div class="progress-wrap">
-            <div class="progress-fill" id="progress-fill" style="width:0%"></div>
-        </div>
-
-        <div class="card">
-            <div class="q-meta">
-                <span class="q-label">Question <span id="q-num">1</span></span>
-                <span class="q-counter"><span id="q-cur">1</span> / <span id="q-tot">10</span></span>
-            </div>
-            <p class="q-text" id="q-text"></p>
-            <div class="options" id="options"></div>
-        </div>
-
+  <!-- ── QUIZ ──────────────────────────────────── -->
+  <section id="s-quiz" class="screen">
+    <div class="bar" id="bar"></div>
+    <div class="q-head">
+      <span class="q-count">Q<b id="cur">1</b> / <span id="tot">5</span></span>
+      <span class="badge" id="badge">Easy</span>
     </div>
-
-    <!-- ════════════════════════════════════════════════════════
-         RESULTS SCREEN
-         ════════════════════════════════════════════════════════ -->
-    <div id="results" class="screen">
-
-        <!-- AD SLOT: results page -->
-        <div class="ad-slot" id="ad-results"></div>
-
-        <div class="results-head card text-center">
-            <h2>Quiz Complete</h2>
-            <div class="score-ring" id="score-ring"><span id="score-pct">—</span></div>
-            <div class="badge" id="badge">Pass</div>
-            <div class="score-grid">
-                <div class="score-cell c">
-                    <div class="num" id="correct-n">0</div>
-                    <div class="lbl">Correct</div>
-                </div>
-                <div class="score-cell i">
-                    <div class="num" id="incorrect-n">0</div>
-                    <div class="lbl">Incorrect</div>
-                </div>
-            </div>
-            <button class="btn btn-secondary" id="review-btn">Review Answers</button>
-            <button class="btn btn-primary" id="retake-btn" style="margin-top:10px">Retake Quiz</button>
-            <button class="btn btn-ghost"   id="home-btn"   style="margin-top:10px">Home</button>
-        </div>
-
+    <div class="q-body" id="qbody">
+      <h2 class="q-text" id="qtext"></h2>
+      <div class="options" id="opts"></div>
     </div>
-
-    <!-- ════════════════════════════════════════════════════════
-         REVIEW SCREEN
-         ════════════════════════════════════════════════════════ -->
-    <div id="review" class="screen">
-
-        <div class="review-top card" style="padding:14px 20px;">
-            <button class="back-btn" id="back-btn">← Results</button>
-            <h2>Answer Review</h2>
-        </div>
-
-        <div class="review-list" id="review-list"></div>
-
-        <!-- AD SLOT: bottom of review -->
-        <div class="ad-slot" id="ad-review"></div>
-
+    <div id="explain"></div>
+    <div class="next-wrap" id="nextwrap" hidden>
+      <button class="btn" id="next">Next</button>
     </div>
+  </section>
 
-</div><!-- /wrap -->
+  <!-- ── DONE ──────────────────────────────────── -->
+  <section id="s-done" class="screen">
+    <div class="done">
+      <div>
+        <p class="eyebrow" style="margin-bottom:12px">Complete</p>
+        <div class="score">
+          <span class="big display" id="sc-n">0</span>
+          <span class="of">/ <span id="sc-t">5</span></span>
+        </div>
+        <p class="verdict-line" id="sc-v"></p>
+      </div>
+      <div class="review" id="review"></div>
+      <div>
+        <button class="btn" id="again">Go Again</button>
+        <button class="btn btn-quiet" id="home" style="margin-top:9px">Back to start</button>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 <script>
-// ================================================================
-// Data & state
-// ================================================================
-let bank        = [];   // all validated questions
-let quiz        = [];   // questions for this session
-let idx         = 0;    // current question index
-let answered    = [];   // { question, userIdx, isCorrect }
-let picked      = null; // selected option index (null = none yet)
-let qty         = 10;   // chosen quantity ('all' or number)
+const RULEBOOK = 'https://www.powerlifting.sport/fileadmin/ipf/data/rules/technical-rules/english/2026_IPF_Technical_Rulebook__effective_01_March_2026__v3.pdf';
 
-// ================================================================
-// Boot
-// ================================================================
-(async function init() {
-    try {
-        const r = await fetch('questions.json');
-        const d = await r.json();
-        bank = d.questions.filter(q => q.status === 'validated');
-    } catch (e) {
-        bank = [];
-        console.error('Could not load questions:', e);
+let bank = [], quiz = [], i = 0, results = [], locked = false;
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).map(p => p[1]);
+
+/* ── Boot ─────────────────────────────────────── */
+(async () => {
+  try {
+    const r = await fetch('questions.json');
+    bank = (await r.json()).questions.filter(q => q.status === 'validated');
+  } catch (e) {
+    console.error('Could not load questions:', e);
+  }
+
+  if (!bank.length) {
+    $('meta').innerHTML = '<span class="chip">Questions unavailable — please refresh</span>';
+    $('go').disabled = true;
+    return;
+  }
+
+  const n = { easy: 0, medium: 0, hard: 0 };
+  bank.forEach(q => { if (n[q.difficulty] !== undefined) n[q.difficulty]++; });
+  $('meta').innerHTML =
+    `<span class="chip">${bank.length} questions</span>` +
+    ['easy', 'medium', 'hard']
+      .filter(k => n[k])
+      .map(k => `<span class="chip"><i class="dot ${k}"></i>${n[k]} ${k}</span>`)
+      .join('');
+
+  $('go').addEventListener('click', start);
+  $('again').addEventListener('click', start);
+  $('home').addEventListener('click', () => show('s-start'));
+  $('next').addEventListener('click', advance);
+
+  document.addEventListener('keydown', e => {
+    if ($('s-start').classList.contains('on') && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault(); start(); return;
     }
-    // Update "All" button label with actual count
-    const allBtn = document.querySelector('.qty-btn[data-qty="all"]');
-    if (allBtn && bank.length) allBtn.textContent = 'All\u00A0(' + bank.length + ')';
-
-    bindEvents();
+    if (!$('s-quiz').classList.contains('on')) return;
+    if (!locked) {
+      const n = parseInt(e.key, 10);
+      if (n >= 1 && n <= 4) {
+        const b = $('opts').children[n - 1];
+        if (b) { e.preventDefault(); b.click(); }
+      }
+    } else if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault(); advance();
+    }
+  });
 })();
 
-// ================================================================
-// Event wiring
-// ================================================================
-function bindEvents() {
-    document.querySelectorAll('.qty-btn').forEach(b => b.addEventListener('click', () => {
-        document.querySelectorAll('.qty-btn').forEach(x => x.classList.remove('active'));
-        b.classList.add('active');
-        qty = b.dataset.qty === 'all' ? 'all' : parseInt(b.dataset.qty, 10);
-    }));
-
-    get('start-btn').addEventListener('click', startQuiz);
-    get('review-btn').addEventListener('click', showReview);
-    get('retake-btn').addEventListener('click', startQuiz);
-    get('home-btn').addEventListener('click', () => show('home'));
-    get('back-btn').addEventListener('click', () => show('results'));
-
-    document.addEventListener('keydown', e => {
-        const n = parseInt(e.key, 10);
-        if (n >= 1 && n <= 4 && get('quiz').classList.contains('active')) {
-            const opts = document.querySelectorAll('.opt:not(:disabled)');
-            if (opts[n - 1]) opts[n - 1].click();
-        }
-    });
+/* ── Flow ─────────────────────────────────────── */
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('on'));
+  $(id).classList.add('on');
+  window.scrollTo({ top: 0 });
 }
 
-// ================================================================
-// Quiz
-// ================================================================
-function startQuiz() {
-    if (!bank.length) { alert('Questions failed to load. Please refresh the page.'); return; }
-    const shuffled = [...bank].sort(() => Math.random() - 0.5);
-    quiz    = qty === 'all' ? shuffled : shuffled.slice(0, Math.min(qty, shuffled.length));
-    idx     = 0;
-    answered = [];
-    renderQuestion();
-    show('quiz');
+function start() {
+  quiz = shuffle(bank);
+  i = 0; results = [];
+  $('tot').textContent = quiz.length;
+  $('bar').innerHTML = quiz.map(() => '<span class="plate"></span>').join('');
+  render();
+  show('s-quiz');
 }
 
-function renderQuestion() {
-    const q = quiz[idx];
-    picked  = null;
+function render() {
+  const q = quiz[i];
+  locked = false;
 
-    // Progress
-    get('progress-fill').style.width = (idx / quiz.length * 100) + '%';
-    get('q-num').textContent = idx + 1;
-    get('q-cur').textContent = idx + 1;
-    get('q-tot').textContent = quiz.length;
+  // Options are shuffled so position never leaks the answer
+  const opts = shuffle(q.options.map((text, idx) => ({ text, ok: idx === q.correctAnswerIndex })));
+  quiz[i]._opts = opts;
 
-    // Question
-    get('q-text').textContent = q.question;
+  $('cur').textContent = i + 1;
+  $('badge').textContent = q.difficulty || '';
+  $('badge').className = 'badge ' + (q.difficulty || '');
+  $('qtext').textContent = q.question;
 
-    // Options
-    const container = get('options');
-    container.innerHTML = '';
-    q.options.forEach((opt, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'opt';
-        btn.textContent = opt;
-        btn.addEventListener('click', () => pick(i));
-        container.appendChild(btn);
-    });
+  const box = $('opts');
+  box.innerHTML = opts.map((o, n) =>
+    `<button class="opt"><span class="num">${n + 1}</span><span>${esc(o.text)}</span></button>`
+  ).join('');
+  [...box.children].forEach((b, n) => b.addEventListener('click', () => pick(n)));
 
+  $('explain').innerHTML = '';
+  $('nextwrap').hidden = true;
+  $('next').textContent = i === quiz.length - 1 ? 'See Results' : 'Next';
+
+  // restart entry animations
+  const body = $('qbody');
+  box.classList.remove('enter'); body.classList.remove('enter');
+  void box.offsetWidth;
+  box.classList.add('enter'); body.classList.add('enter');
+
+  paintBar();
 }
 
-function pick(i) {
-    if (picked !== null) return;
-    picked = i;
+function paintBar() {
+  [...$('bar').children].forEach((p, n) => {
+    p.className = 'plate';
+    if (n < results.length) p.classList.add(results[n].ok ? 'hit' : 'miss');
+    else if (n === i) p.classList.add('now');
+  });
+}
 
-    const q  = quiz[idx];
-    const ok = i === q.correctAnswerIndex;
+function pick(n) {
+  if (locked) return;
+  locked = true;
 
-    // Briefly highlight the chosen option, then advance
-    document.querySelectorAll('.opt').forEach((b, j) => {
-        b.disabled = true;
-        if (j === i) b.classList.add(ok ? 'correct' : 'incorrect');
-    });
+  const q = quiz[i];
+  const opts = q._opts;
+  const ok = opts[n].ok;
+  results.push({ q, ok, chose: opts[n].text });
 
-    answered.push({ question: q, userIdx: i, isCorrect: ok });
-    setTimeout(advance, 400);
+  [...$('opts').children].forEach((b, k) => {
+    b.disabled = true;
+    if (k === n) b.classList.add(ok ? 'good' : 'bad');
+    else if (opts[k].ok) b.classList.add('reveal');
+    else b.classList.add('dim');
+  });
+
+  const ref = q.ruleReference || {};
+  let refText = 'Rule ' + (ref.ruleNumber || '');
+  if (ref.subsection) refText += ' · ' + ref.subsection;
+  else if (ref.section) refText += ' · ' + ref.section;
+  if (ref.pageNumber) refText += ' · p.' + ref.pageNumber;
+
+  $('explain').innerHTML =
+    `<div class="explain">
+       <div class="verdict ${ok ? 'good' : 'bad'}">${ok ? 'Good lift' : 'No lift'}</div>
+       <p>${esc(q.explanation || '')}</p>
+       ${q.ruleQuote ? `<p class="quote">${esc(q.ruleQuote)}</p>` : ''}
+       <a class="ref" href="${RULEBOOK}${ref.pageNumber ? '#page=' + ref.pageNumber : ''}"
+          target="_blank" rel="noopener">${esc(refText)} ↗</a>
+     </div>`;
+
+  $('nextwrap').hidden = false;
+  paintBar();
 }
 
 function advance() {
-    idx++;
-    if (idx >= quiz.length) showResults();
-    else renderQuestion();
+  if (!locked) return;
+  i++;
+  if (i >= quiz.length) finish();
+  else render();
 }
 
-// ================================================================
-// Results
-// ================================================================
-function showResults() {
-    get('progress-fill').style.width = '100%';
+function finish() {
+  const n = results.filter(r => r.ok).length;
+  const t = results.length;
 
-    const total   = answered.length;
-    const correct = answered.filter(a => a.isCorrect).length;
-    const wrong   = total - correct;
-    const pct     = Math.round(correct / total * 100);
-    const pass    = pct >= 70;
+  $('sc-n').textContent = n;
+  $('sc-t').textContent = t;
+  $('sc-v').textContent =
+    n === t ? 'Three white lights.' :
+    n / t >= 0.7 ? 'Good lift.' : 'Back to the rulebook.';
 
-    get('score-pct').textContent   = pct + '%';
-    get('correct-n').textContent   = correct;
-    get('incorrect-n').textContent = wrong;
+  $('review').innerHTML = results.map((r, k) => {
+    const right = r.q.options[r.q.correctAnswerIndex];
+    return `<div class="rev" style="animation-delay:${0.03 * k}s">
+      <span class="mark ${r.ok ? 'good' : 'bad'}">${r.ok ? '✓' : '✕'}</span>
+      <div>
+        <div class="rev-q">${esc(r.q.question)}</div>
+        ${r.ok ? '' : `<div class="rev-a">You chose ${esc(r.chose)} — correct answer: <b>${esc(right)}</b></div>`}
+      </div>
+    </div>`;
+  }).join('');
 
-    const ring  = get('score-ring');
-    ring.className = 'score-ring ' + (pass ? 'pass' : 'fail');
-
-    const badge = get('badge');
-    badge.textContent = pass ? 'Pass' : 'Fail';
-    badge.className   = 'badge '    + (pass ? 'pass' : 'fail');
-
-    show('results');
-}
-
-// ================================================================
-// Review
-// ================================================================
-function showReview() {
-    const list = get('review-list');
-    list.innerHTML = '';
-
-    answered.forEach(({ question: q, userIdx, isCorrect }, n) => {
-        const el = document.createElement('div');
-        el.className = 'rev-item ' + (isCorrect ? 'correct' : 'incorrect');
-
-        const userClass = isCorrect ? 'user-correct' : 'user-wrong';
-        const correctRow = !isCorrect
-            ? `<div class="rev-answer right-answer">✓ ${esc(q.options[q.correctAnswerIndex])}</div>`
-            : '';
-
-        el.innerHTML =
-            `<div class="rev-q-num">Question ${n + 1}</div>` +
-            `<div class="rev-q-text">${esc(q.question)}</div>` +
-            `<div class="rev-answer ${userClass}">${isCorrect ? '✓' : '✗'} ${esc(q.options[userIdx])}</div>` +
-            correctRow +
-            (q.explanation
-                ? `<div class="rev-explanation">${esc(q.explanation)}</div>`
-                : '') +
-            (q.ruleReference
-                ? `<div class="rev-rule">${ruleRefLink(q.ruleReference)}</div>`
-                : '');
-
-        list.appendChild(el);
-    });
-
-    show('review');
-}
-
-// ================================================================
-// Helpers
-// ================================================================
-function show(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    get(id).classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function get(id) { return document.getElementById(id); }
-
-function esc(str) {
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-}
-
-const RULEBOOK_URL = 'https://www.powerlifting.sport/fileadmin/ipf/data/rules/technical-rules/english/2026_IPF_Technical_Rulebook__effective_01_March_2026__v3.pdf';
-
-function ruleRefText(ref) {
-    if (!ref) return '';
-    let s = 'Rule ' + ref.ruleNumber + ' — ' + ref.section;
-    if (ref.subsection) s += ' › ' + ref.subsection;
-    if (ref.pageNumber)  s += ' (page ' + ref.pageNumber + ')';
-    return s;
-}
-
-function ruleRefLink(ref) {
-    if (!ref) return '';
-    const text = esc(ruleRefText(ref));
-    const url  = ref.pageNumber ? RULEBOOK_URL + '#page=' + ref.pageNumber : RULEBOOK_URL;
-    return `<a class="rule-link" href="${url}" target="_blank" rel="noopener">${text} ↗</a>`;
+  show('s-done');
 }
 </script>
 </body>
