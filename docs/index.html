@@ -557,9 +557,8 @@ function paintCount() {
   const btn  = $('count');
 
   btn.textContent =
-    pool === 0  ? 'no questions' :
-    n < pool    ? `${n} of ${pool}` :
-    n === 1     ? '1 question' : `${n} questions`;
+    pool === 0 ? 'no questions' :
+    n === 1    ? '1 question' : `${n} questions`;
 
   // nothing to cycle through when the pool only affords one length
   btn.disabled = opts.length < 2;
