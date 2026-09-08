@@ -104,6 +104,23 @@ body::after{
   border-radius:999px;
   color:var(--mute);
 }
+
+/* Difficulty filters — click to include or exclude a tier */
+button.chip{
+  font-family:inherit;background:none;cursor:pointer;
+  transition:color var(--fast) var(--ease),border-color var(--fast) var(--ease),
+             background var(--fast) var(--ease),opacity var(--fast) var(--ease);
+}
+button.chip:hover{border-color:#4A4A54}
+button.chip:focus-visible{outline:2px solid var(--paper);outline-offset:2px}
+button.chip[aria-pressed="true"]{
+  color:var(--paper);border-color:#4A4A54;background:var(--ink-2);
+}
+button.chip[aria-pressed="false"]{opacity:.4}
+button.chip[aria-pressed="false"] .count{text-decoration:line-through}
+/* hollow dot when the tier is switched off */
+button.chip[aria-pressed="false"] .dot{background:transparent!important;box-shadow:inset 0 0 0 1.5px currentColor}
+
 .dot{width:8px;height:8px;border-radius:50%;flex:none}
 .dot.easy{background:var(--disc-15)}
 .dot.medium{background:var(--disc-20)}
@@ -312,6 +329,8 @@ footer a{color:var(--mute)}
 /* Keyboard hints are meaningless on touch devices */
 @media (hover:none) and (pointer:coarse){
   .hint{display:none}
+  /* roomier tap targets for the difficulty filters */
+  button.chip{padding:11px 15px}
 }
 
 @media (prefers-reduced-motion:reduce){
@@ -404,14 +423,7 @@ const shuffle = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).
     return;
   }
 
-  const n = { easy: 0, medium: 0, hard: 0 };
-  bank.forEach(q => { if (n[q.difficulty] !== undefined) n[q.difficulty]++; });
-  $('meta').innerHTML =
-    `<span class="chip">${bank.length} questions</span>` +
-    ['easy', 'medium', 'hard']
-      .filter(k => n[k])
-      .map(k => `<span class="chip"><i class="dot ${k}"></i>${n[k]} ${k}</span>`)
-      .join('');
+  buildFilters();
 
   $('go').addEventListener('click', start);
   $('again').addEventListener('click', start);
@@ -420,6 +432,9 @@ const shuffle = a => a.map(v => [Math.random(), v]).sort((x, y) => x[0] - y[0]).
 
   document.addEventListener('keydown', e => {
     if ($('s-start').classList.contains('on') && (e.key === 'Enter' || e.key === ' ')) {
+      // A focused filter chip or the Start button handles its own key natively.
+      // closest() only exists on Elements — an event targeting the document has no focused button.
+      if (e.target.closest?.('button')) return;
       e.preventDefault(); start(); return;
     }
     if (!$('s-quiz').classList.contains('on')) return;
@@ -442,8 +457,65 @@ function show(id) {
   window.scrollTo({ top: 0 });
 }
 
+/* ── Difficulty filters ───────────────────────── */
+const TIERS = ['easy', 'medium', 'hard'];
+const STORE = 'plq.tiers';
+let on = new Set(TIERS);
+
+// Restore the visitor's last choice, ignoring anything unusable
+try {
+  const saved = JSON.parse(localStorage.getItem(STORE));
+  if (Array.isArray(saved)) {
+    const valid = saved.filter(t => TIERS.includes(t));
+    if (valid.length) on = new Set(valid);
+  }
+} catch (e) { /* private mode, blocked storage — keep the default */ }
+
+const picked = () => bank.filter(q => on.has(q.difficulty));
+
+function buildFilters() {
+  const n = {};
+  bank.forEach(q => { n[q.difficulty] = (n[q.difficulty] || 0) + 1; });
+  const tiers = TIERS.filter(t => n[t]);
+
+  // Never leave the visitor with a selection that yields no questions
+  if (![...on].some(t => n[t])) on = new Set(tiers);
+
+  $('meta').innerHTML =
+    `<span class="chip" id="count"></span>` +
+    tiers.map(t =>
+      `<button type="button" class="chip" data-tier="${t}" aria-pressed="${on.has(t)}">
+         <i class="dot ${t}"></i><span class="count">${n[t]}</span> ${t}
+       </button>`).join('');
+
+  $('meta').querySelectorAll('button.chip').forEach(b =>
+    b.addEventListener('click', () => toggle(b.dataset.tier, tiers)));
+
+  paintCount();
+}
+
+function toggle(tier, tiers) {
+  on.has(tier) ? on.delete(tier) : on.add(tier);
+  // Turning the last one off would leave nothing to ask — turn the others back on
+  if (!on.size) tiers.forEach(t => on.add(t));
+
+  $('meta').querySelectorAll('button.chip').forEach(b =>
+    b.setAttribute('aria-pressed', on.has(b.dataset.tier)));
+
+  try { localStorage.setItem(STORE, JSON.stringify([...on])); } catch (e) { /* ignore */ }
+  paintCount();
+}
+
+function paintCount() {
+  const k = picked().length;
+  $('count').textContent = k === 1 ? '1 question' : k + ' questions';
+  $('go').disabled = !k;
+}
+
+/* ── Quiz ─────────────────────────────────────── */
 function start() {
-  quiz = shuffle(bank);
+  quiz = shuffle(picked());
+  if (!quiz.length) return;
   i = 0; results = [];
   $('tot').textContent = quiz.length;
   $('bar').innerHTML = quiz.map(() => '<span class="plate"></span>').join('');
