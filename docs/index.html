@@ -120,6 +120,11 @@ button.chip[aria-pressed="false"]{opacity:.4}
 button.chip[aria-pressed="false"] .count{text-decoration:line-through}
 /* hollow dot when the tier is switched off */
 button.chip[aria-pressed="false"] .dot{background:transparent!important;box-shadow:inset 0 0 0 1.5px currentColor}
+button.chip:disabled{cursor:default}
+/* Quiz length — click to cycle. Not a toggle, so it carries no pressed state. */
+button.chip-count{color:var(--paper);border-color:#3A3A44}
+button.chip-count:hover:not(:disabled){border-color:var(--paper)}
+button.chip-count:disabled{color:var(--mute);border-color:var(--line)}
 
 .dot{width:8px;height:8px;border-radius:50%;flex:none}
 .dot.easy{background:var(--disc-15)}
@@ -461,7 +466,43 @@ function show(id) {
 // TIERS is ordered easiest first — an uneven split leans this way
 const TIERS = ['easy', 'medium', 'hard'];
 const STORE = 'plq.tiers';
-const MAX_Q = 10;
+const LEN   = 'plq.len';
+const STEPS = [10, 20, 30];
+let want = STEPS[0];
+
+try {
+  const n = parseInt(localStorage.getItem(LEN), 10);
+  if (n > 0) want = n;
+} catch (e) { /* blocked storage — keep the default */ }
+
+/* Lengths on offer: the standard steps that fit inside the pool, plus the
+   whole pool as a final "all" — but only while the pool is no bigger than
+   the largest step, so 46 available offers 10/20/30 rather than 10/20/30/46. */
+function lengthOptions() {
+  const avail = picked().length;
+  if (!avail) return [];
+  const opts = STEPS.filter(s => s < avail);
+  if (avail <= STEPS[STEPS.length - 1]) opts.push(avail);
+  return opts;
+}
+
+/* `want` is remembered as chosen; if the tier filters shrink the pool we
+   fall back to the largest option that still fits, without forgetting it. */
+function chosenLength() {
+  const opts = lengthOptions();
+  if (!opts.length) return 0;
+  if (opts.includes(want)) return want;
+  const fits = opts.filter(o => o <= want);
+  return fits.length ? Math.max(...fits) : Math.min(...opts);
+}
+
+function cycleLength() {
+  const opts = lengthOptions();
+  if (opts.length < 2) return;
+  want = opts[(opts.indexOf(chosenLength()) + 1) % opts.length];
+  try { localStorage.setItem(LEN, String(want)); } catch (e) { /* ignore */ }
+  paintCount();
+}
 let on = new Set(TIERS);
 
 // Restore the visitor's last choice, ignoring anything unusable
@@ -484,14 +525,15 @@ function buildFilters() {
   if (![...on].some(t => n[t])) on = new Set(tiers);
 
   $('meta').innerHTML =
-    `<span class="chip" id="count"></span>` +
+    `<button type="button" class="chip chip-count" id="count"></button>` +
     tiers.map(t =>
       `<button type="button" class="chip" data-tier="${t}" aria-pressed="${on.has(t)}">
          <i class="dot ${t}"></i><span class="count">${n[t]}</span> ${t}
        </button>`).join('');
 
-  $('meta').querySelectorAll('button.chip').forEach(b =>
+  $('meta').querySelectorAll('button.chip[data-tier]').forEach(b =>
     b.addEventListener('click', () => toggle(b.dataset.tier, tiers)));
+  $('count').addEventListener('click', cycleLength);
 
   paintCount();
 }
@@ -501,7 +543,7 @@ function toggle(tier, tiers) {
   // Turning the last one off would leave nothing to ask — turn the others back on
   if (!on.size) tiers.forEach(t => on.add(t));
 
-  $('meta').querySelectorAll('button.chip').forEach(b =>
+  $('meta').querySelectorAll('button.chip[data-tier]').forEach(b =>
     b.setAttribute('aria-pressed', on.has(b.dataset.tier)));
 
   try { localStorage.setItem(STORE, JSON.stringify([...on])); } catch (e) { /* ignore */ }
@@ -510,17 +552,28 @@ function toggle(tier, tiers) {
 
 function paintCount() {
   const pool = picked().length;
-  const asked = Math.min(MAX_Q, pool);
-  $('count').textContent =
-    pool === 0     ? 'no questions' :
-    pool > asked   ? `${asked} of ${pool}` :
-    asked === 1    ? '1 question' : `${asked} questions`;
+  const opts = lengthOptions();
+  const n    = chosenLength();
+  const btn  = $('count');
+
+  btn.textContent =
+    pool === 0  ? 'no questions' :
+    n < pool    ? `${n} of ${pool}` :
+    n === 1     ? '1 question' : `${n} questions`;
+
+  // nothing to cycle through when the pool only affords one length
+  btn.disabled = opts.length < 2;
+  btn.setAttribute('aria-label',
+    opts.length > 1
+      ? `Quiz length: ${n} questions. Change length — ${opts.join(', ')} available.`
+      : `Quiz length: ${n} questions.`);
+
   $('go').disabled = !pool;
 }
 
 /* ── Quiz ─────────────────────────────────────── */
 
-/* Draw up to MAX_Q, split as evenly as the selected tiers allow.
+/* Draw the chosen number of questions, split as evenly as the tiers allow.
    Dealing one per tier in turn keeps tiers within one of each other,
    leaves any remainder on the earliest (easiest) tiers, and skips a
    tier once it runs dry so a short tier never costs us the full draw. */
@@ -529,7 +582,7 @@ function draw() {
   const pool = {};
   tiers.forEach(t => pool[t] = shuffle(bank.filter(q => q.difficulty === t)));
 
-  const target = Math.min(MAX_Q, tiers.reduce((n, t) => n + pool[t].length, 0));
+  const target = Math.min(chosenLength(), tiers.reduce((n, t) => n + pool[t].length, 0));
   const take = Object.fromEntries(tiers.map(t => [t, 0]));
 
   let placed = 0;
