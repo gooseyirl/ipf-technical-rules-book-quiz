@@ -202,6 +202,206 @@
       },
       "ruleQuote": "Knee sleeves shall be of a maximum thickness of 7 mm and a maximum length of 30 cm.",
       "status": "validated"
+    },
+    {
+      "id": 11,
+      "question": "What colour must a 25 kg disc be?",
+      "options": [
+        "Red",
+        "Blue",
+        "Yellow",
+        "Green"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "easy",
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "2.3 (b) 6",
+        "pageNumber": 9
+      },
+      "ruleQuote": "Discs must conform to the following color code: … 25 kg - red.",
+      "status": "validated"
+    },
+    {
+      "id": 12,
+      "question": "What colour must a 10 kg disc be?",
+      "options": [
+        "Any colour",
+        "Green",
+        "White",
+        "Black"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "hard",
+      "ruleReference": {
+        "section": "Equipment and Specifications",
+        "subsection": "Bars and Discs",
+        "ruleNumber": "2.3 (b) 6",
+        "pageNumber": 9
+      },
+      "ruleQuote": "Discs must conform to the following color code: 10 kg and under - any color …",
+      "status": "validated"
+    },
+    {
+      "id": 13,
+      "question": "Excluding record attempts, what is the minimum weight increase between attempts?",
+      "options": [
+        "1.0 kg",
+        "2.5 kg",
+        "5.0 kg",
+        "7.5 kg"
+      ],
+      "correctAnswerIndex": 1,
+      "difficulty": "medium",
+      "ruleReference": {
+        "section": "Order of Competition",
+        "subsection": "Miscellaneous Rules",
+        "ruleNumber": "6.3 (4)",
+        "pageNumber": 33
+      },
+      "ruleQuote": "Unless attempts are made on records, in Squat, Bench Press and Deadlift, the progression must be at least 2.5 kg between all attempts",
+      "status": "validated"
+    },
+    {
+      "id": 14,
+      "question": "In a record attempt, by how much must the bar exceed the current record?",
+      "options": [
+        "0.25 kg",
+        "0.5 kg",
+        "1.5 kg",
+        "2.5 kg"
+      ],
+      "correctAnswerIndex": 1,
+      "difficulty": "medium",
+      "ruleReference": {
+        "section": "Order of Competition",
+        "subsection": "Miscellaneous Rules",
+        "ruleNumber": "6.3 (4)(a)",
+        "pageNumber": 33
+      },
+      "ruleQuote": "In a record attempt the weight of the barbell must be at least 0.5 kg in excess of the current record.",
+      "status": "validated"
+    },
+    {
+      "id": 15,
+      "question": "In the squat, must the lifter's thumbs wrap around the bar?",
+      "options": [
+        "No, but they must remain in contact with the bar",
+        "Yes, a thumbs-around grip is required at all times",
+        "Yes, unless the lifter uses a low bar position",
+        "No, and they need not touch the bar at all"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "hard",
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Squat",
+        "ruleNumber": "4.1 (1)",
+        "pageNumber": 20
+      },
+      "ruleQuote": "The thumbs are not required to wrap around the bar. However, the hands, thumb, and fingers must remain in complete contact with the bar …",
+      "status": "validated"
+    },
+    {
+      "id": 16,
+      "question": "What is the Chief Referee's command to begin the squat?",
+      "options": [
+        "“Squat”",
+        "“Start”",
+        "“Down”",
+        "“Lift”"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "easy",
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Squat",
+        "ruleNumber": "4.1 (2)",
+        "pageNumber": 21
+      },
+      "ruleQuote": "The signal shall consist of a downward movement of the arm and the audible command “Squat”.",
+      "status": "validated"
+    },
+    {
+      "id": 17,
+      "question": "Is a lifter required to wear a belt?",
+      "options": [
+        "No, a belt is optional",
+        "Yes, required for the deadlift only",
+        "Yes, required for the squat only",
+        "Yes, required for the squat and deadlift"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "easy",
+      "ruleReference": {
+        "section": "Personal Equipment",
+        "subsection": "Belt",
+        "ruleNumber": "3.6",
+        "pageNumber": 16
+      },
+      "ruleQuote": "Competitors may wear a belt. If worn, it shall be on the outside of the lifting suit.",
+      "status": "validated"
+    },
+    {
+      "id": 18,
+      "question": "How long before the start of the competition may weigh-in begin?",
+      "options": [
+        "1 hour",
+        "2 hours",
+        "3 hours",
+        "4 hours"
+      ],
+      "correctAnswerIndex": 1,
+      "difficulty": "medium",
+      "ruleReference": {
+        "section": "Weighing In",
+        "subsection": "",
+        "ruleNumber": "5 (1)",
+        "pageNumber": 26
+      },
+      "ruleQuote": "Weighing in of the competitors must take place no earlier than two hours before the start of the competition",
+      "status": "validated"
+    },
+    {
+      "id": 19,
+      "question": "In the deadlift, is foot movement after the “Down” command a cause for failure?",
+      "options": [
+        "No, it is not a cause for failure",
+        "Yes, it is a cause for failure",
+        "Only if the lifter's foot is no longer flat on the floor",
+        "Only if the lifter takes a step"
+      ],
+      "correctAnswerIndex": 0,
+      "difficulty": "hard",
+      "ruleReference": {
+        "section": "Powerlifts and Rules of Performance",
+        "subsection": "Causes for Disqualification of a Deadlift",
+        "ruleNumber": "4.3.1 (5)",
+        "pageNumber": 25
+      },
+      "ruleQuote": "Foot movement after the command “Down” will not be cause for failure.",
+      "status": "validated"
+    },
+    {
+      "id": 20,
+      "question": "How many referees make up the Jury?",
+      "options": [
+        "Three only",
+        "Five only",
+        "Three or five",
+        "Three to five"
+      ],
+      "correctAnswerIndex": 2,
+      "difficulty": "hard",
+      "ruleReference": {
+        "section": "Jury and Technical Committee",
+        "subsection": "Jury",
+        "ruleNumber": "8.1 (2)",
+        "pageNumber": 41
+      },
+      "ruleQuote": "The Jury shall consist of three or five Category 1 referees.",
+      "status": "validated"
     }
   ]
 }
